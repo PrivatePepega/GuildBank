@@ -1,0 +1,74 @@
+{
+    "items": [
+    {
+        "step": 1,
+        "script": "gm fren,",
+        "image": "/intro/img1-1.jpg"
+    },
+    {
+        "step": 1,
+        "script": "welcome to metaverse.",
+        "image": "/intro/img1-2.png"
+    },
+    {
+        "step": 2,
+        "script": "founder typing- im tired fren,",
+        "image": "/intro/img2-1.jpeg"
+    },
+    {
+        "step": 2,
+        "script": "i hope this serves well, im sure we'll make this better.",
+        "image": "/intro/img3-1.jpg"
+    },
+    {
+        "step": 3,
+        "script": "anyways, so here, download this file or click on this figma link.",
+        "image": "/intro/img4-1.png"
+    },
+    {
+        "step": 3,
+        "script": "This will explain.",
+        "image": "/intro/img4-2.jpg"
+    },
+    {
+        "step": 4,
+        "script": "fren back?",
+        "image": "/intro/img5-1.jpg"
+    },
+    {
+        "step": 4,
+        "script": "or just pressing next, its ok.",
+        "image": "/intro/img5-2.jpg"
+    },
+    {
+        "step": 5,
+        "script": "So remember this is the blockchain, very much like real life, everything you do is written here.",
+        "image": "/intro/img6-1.png"
+    },
+    {
+        "step": 5,
+        "script": "Stay safe fren!",
+        "image": "/intro/img6-2.jpg"
+    },
+    {
+        "step":6,
+        "script": "GuildBank will make sure to help you,",
+        "image": "/intro/img7-1.png"
+    },
+    {
+        "step": 6,
+        "script": "and guide you though these tough times.",
+        "image": "/intro/img7-2.jpg"
+    },
+    {
+        "step": 7,
+        "script": "Up next is your passport, to become a member of the GuildBank.",
+        "image": "/intro/img1-1.jpg"
+    },
+    {
+        "step": 7,
+        "script": "Welcome private pepega,",
+        "image": "/intro/img1-1.jpg"
+    }
+  ]
+}  
