@@ -25,7 +25,6 @@ const BoDVotingCTO = () => {
 
 
 
-  const activeAccount = useActiveAccount();
   const [candidateIPFS, setCandidateIPFS] = useState("");
   const [candidateLink, setCandidateLink] = useState("");
   const [Candidate, setCandidates] = useState("");
@@ -36,10 +35,10 @@ const BoDVotingCTO = () => {
 
 
   
-  const { data: viewCandidateArray, viewCandidateArrayLoading } = useReadContract({
-    contract: contractBallot,
-    method: "function viewCandidateCTOArray() returns (address[])",
-  });
+  // const { data: viewCandidateArray, viewCandidateArrayLoading } = useReadContract({
+  //   contract: contractBallot,
+  //   method: "function viewCandidateCTOArray() returns (address[])",
+  // });
 
   const { data: viewTopCandidatesArray, viewTopCandidatesArrayLoading } = useReadContract({
     contract: contractBallot,
@@ -102,43 +101,43 @@ const BoDVotingCTO = () => {
 
 
 
-  function findObjectIndex(Candidate) {
-    const index = viewCandidateArray?.findIndex(
-      (item) => item === Candidate
-  );
-    if (index === -1) {
-        console.log("Object not found");
-        return null;
-    }
-    setIndex(index);
-    console.log(index);
-    setviewCandidates(viewCandidateArray[index])
-}
+//   function findObjectIndex(Candidate) {
+//     const index = viewCandidateArray?.findIndex(
+//       (item) => item === Candidate
+//   );
+//     if (index === -1) {
+//         console.log("Object not found");
+//         return null;
+//     }
+//     setIndex(index);
+//     console.log(index);
+//     setviewCandidates(viewCandidateArray[index])
+// }
 
 
 
-  const handleSearch = () => {
-    findObjectIndex(Candidate);
-  }; 
-  const handleNext = () => {
-    if (index < viewCandidateArray.length - 1) {
-      const newIndex = index + 1;
-      setIndex(newIndex);
-      setviewCandidates(viewCandidateArray[newIndex]);
-    } else {
-      console.log("No more candidates");
-    }
-  }; 
+//   const handleSearch = () => {
+//     findObjectIndex(Candidate);
+//   }; 
+//   const handleNext = () => {
+//     if (index < viewCandidateArray.length - 1) {
+//       const newIndex = index + 1;
+//       setIndex(newIndex);
+//       setviewCandidates(viewCandidateArray[newIndex]);
+//     } else {
+//       console.log("No more candidates");
+//     }
+//   }; 
 
-  const handleBack = () => {
-    if (index > 0) {
-      const newIndex = index - 1;
-      setIndex(newIndex);
-      setviewCandidates(viewCandidateArray[newIndex]);
-    } else {
-      console.log("No previous candidates");
-    }  
-  };
+//   const handleBack = () => {
+//     if (index > 0) {
+//       const newIndex = index - 1;
+//       setIndex(newIndex);
+//       setviewCandidates(viewCandidateArray[newIndex]);
+//     } else {
+//       console.log("No previous candidates");
+//     }  
+//   };
 
 
 
@@ -210,19 +209,21 @@ const BoDVotingCTO = () => {
 
 
 
-      <Input
+        <Input
         type="string"
         color="white"
         label="Candidate Address"
         onChange={(e) => setCandidates(e.target.value)}
       />
-      <Button onClick={()=>{handleBack()}}>Left</Button>
-      <Button onClick={()=>{handleSearch()}}>Search</Button>
-      <Button onClick={()=>{handleNext()}}>Right</Button>
+      {/* <Button onClick={()=>{handleBack()}}>Left</Button> */}
+      <Button onClick={()=>{setviewCandidates()}}>Search</Button>
+      {/* <Button onClick={()=>{handleNext()}}>Right</Button> */}
 
-      <div>
+      {/* <div>
           Candidates: {viewCandidateArray ? viewCandidateArray?.map((tx) => tx.toString()).join(", ") : null}
-        </div>
+        </div> */}
+
+
 
 
        

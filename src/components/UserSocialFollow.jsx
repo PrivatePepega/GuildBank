@@ -145,94 +145,37 @@ const UserSocialFollow = () => {
 
 
     return (
-      <div>
 
-        <div className='flex flex-col justify-center items-center'>
-          <h1 className='my-3 font-bold text-lg mt-7'>
-            Follow
-          </h1>
-          <div className='w-52'>
-            <Input
-              type="text"
-              label="Address"
-              color="white"
-              onChange={(e) => setToFollow(e.target.value)}
-            />
-          </div>
-          <ButtonGroup>
-            <Button onClick={()=>{followPersonFunc(toFollow)}}>Follow</Button>
-            <Button onClick={()=>{unFollowPersonFunc(toFollow)}}>UnFollow</Button>
-          </ButtonGroup>
 
-        </div>
+<div>
+
+<h1>On da workshop bench, free dlc</h1>
+
+
+</div>
 
 
 
+      // <div>
 
+      //   <div className='flex flex-col justify-center items-center'>
+      //     <h1 className='my-3 font-bold text-lg mt-7'>
+      //       Follow
+      //     </h1>
+      //     <div className='w-52'>
+      //       <Input
+      //         type="text"
+      //         label="Address"
+      //         color="white"
+      //         onChange={(e) => setToFollow(e.target.value)}
+      //       />
+      //     </div>
+      //     <ButtonGroup>
+      //       <Button onClick={()=>{followPersonFunc(toFollow)}}>Follow</Button>
+      //       <Button onClick={()=>{unFollowPersonFunc(toFollow)}}>UnFollow</Button>
+      //     </ButtonGroup>
 
-
-
-
-
-
-
-
-
-
-
-        <div className='flex justify-center items-center my-5'>
-          <h1 className=' font-bold text-lg mt-7'>
-            Following Section
-          </h1>
-        </div>
-
-
-        <div className='flex flex-row gap-5'>
-            <div className='flex flex-col'>
-                <div className='flex flex-col'>
-                    <Input
-                        type="string"
-                        color="white"
-                        label="Search Following Address"
-                        onChange={(e) => setCandidatesFollowing(e.target.value)}
-                    />
-                    <div className='flex flex-row'>
-                        <Button onClick={()=>{handleNextFollowing()}}>Left</Button>
-                        <Button onClick={()=>{handleSearchFollowing(candidateFollowing)}}>Search</Button>
-                        <Button onClick={()=>{handleBackFollowing()}}>Right</Button>
-                    </div>
-                </div>
-                <div className='max-h-52 overflow-y-auto border w-72'>
-                    <h1>following list {indexFollowing}</h1>
-                    [{viewFollowingArray?.map((user) => user.toString()).join(", ")}]
-                </div>
-            </div>
-            <div className="flex flex-row items-center">
-                <div>
-                    <MediaRenderer src={PassportFollowing && PassportFollowing[0]}/>
-                </div>
-                <div>
-                    <div>
-                        UserName: <IPFSFileViewer ipfsUrl={PassportFollowing && PassportFollowing[2]} />
-                    </div>
-                    <div>
-                        Address: {PassportFollowing && PassportFollowing[1]}
-                    </div>
-                    <div>
-                        Handle: {PassportFollowing && PassportFollowing[3]}
-                    </div>
-                    <div>
-                        Status MSG: <IPFSFileViewer ipfsUrl={PassportFollowing && PassportFollowing[4]} />
-                    </div>
-                    <div>
-                        Is Minor: {PassportFollowing && PassportFollowing[6]}
-                    </div>
-                    <div>
-                        Passport Creation: {PassportFollowing && PassportFollowing[5]}
-                    </div>
-                </div>
-            </div>
-        </div>
+      //   </div>
 
 
 
@@ -245,58 +188,126 @@ const UserSocialFollow = () => {
 
 
 
-        <div className='flex items-center justify-center my-5'>
-          <h1 className=' font-bold text-lg mt-7'>
-            Follower Section
-          </h1>
-        </div>
-        <div className='flex flex-row mb-10'>
-            <div className='flex flex-col'>
-                <div className='flex flex-col'>
-                    <Input
-                        type="string"
-                        color="white"
-                        label="Search Followers Address"
-                        onChange={(e) => setCandidatesFollower(e.target.value)}
-                    />
-                    <div className='flex flex-row'>
-                        <Button onClick={()=>{handleNextFollower()}}>Left</Button>
-                        <Button onClick={()=>{handleSearchFollower(candidateFollower)}}>Search</Button>
-                        <Button onClick={()=>{handleBackFollower()}}>Right</Button>
-                    </div>
-                </div>
-                <div className='max-h-52 overflow-y-auto border w-72'>
-                <h1>followers list</h1>
-                [{viewFollowersArray?.map((user) => user.toString()).join(", ")}]
-                </div>
-            </div>
-            <div className="flex flex-row items-center">
-                <div>
-                    <MediaRenderer src={PassportFollower && PassportFollower[0]}/>
-                </div>
-                <div>
-                    <div>
-                        UserName: <IPFSFileViewer ipfsUrl={PassportFollower && PassportFollower[2]} />
-                    </div>
-                    <div>
-                        Address: {PassportFollower && PassportFollower[1]}
-                    </div>
-                    <div>
-                        Handle: {PassportFollower && PassportFollower[3]}
-                    </div>
-                    <div>
-                        Status MSG: <IPFSFileViewer ipfsUrl={PassportFollower && PassportFollower[4]} />
-                    </div>
-                    <div>
-                        Is Minor: {PassportFollowing && PassportFollowing[6]}
-                    </div>
-                    <div>
-                        Passport Creation: {PassportFollower && PassportFollower[5]}
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
+
+
+
+      //   <div className='flex justify-center items-center my-5'>
+      //     <h1 className=' font-bold text-lg mt-7'>
+      //       Following Section
+      //     </h1>
+      //   </div>
+
+
+      //   <div className='flex flex-row gap-5'>
+      //       <div className='flex flex-col'>
+      //           <div className='flex flex-col'>
+      //               <Input
+      //                   type="string"
+      //                   color="white"
+      //                   label="Search Following Address"
+      //                   onChange={(e) => setCandidatesFollowing(e.target.value)}
+      //               />
+      //               <div className='flex flex-row'>
+      //                   <Button onClick={()=>{handleNextFollowing()}}>Left</Button>
+      //                   <Button onClick={()=>{handleSearchFollowing(candidateFollowing)}}>Search</Button>
+      //                   <Button onClick={()=>{handleBackFollowing()}}>Right</Button>
+      //               </div>
+      //           </div>
+      //           <div className='max-h-52 overflow-y-auto border w-72'>
+      //               <h1>following list {indexFollowing}</h1>
+      //               [{viewFollowingArray?.map((user) => user.toString()).join(", ")}]
+      //           </div>
+      //       </div>
+      //       <div className="flex flex-row items-center">
+      //           <div>
+      //               <MediaRenderer src={PassportFollowing && PassportFollowing[0]}/>
+      //           </div>
+      //           <div>
+      //               <div>
+      //                   UserName: <IPFSFileViewer ipfsUrl={PassportFollowing && PassportFollowing[2]} />
+      //               </div>
+      //               <div>
+      //                   Address: {PassportFollowing && PassportFollowing[1]}
+      //               </div>
+      //               <div>
+      //                   Handle: {PassportFollowing && PassportFollowing[3]}
+      //               </div>
+      //               <div>
+      //                   Status MSG: <IPFSFileViewer ipfsUrl={PassportFollowing && PassportFollowing[4]} />
+      //               </div>
+      //               <div>
+      //                   Is Minor: {PassportFollowing && PassportFollowing[6]}
+      //               </div>
+      //               <div>
+      //                   Passport Creation: {PassportFollowing && PassportFollowing[5]}
+      //               </div>
+      //           </div>
+      //       </div>
+      //   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+      //   <div className='flex items-center justify-center my-5'>
+      //     <h1 className=' font-bold text-lg mt-7'>
+      //       Follower Section
+      //     </h1>
+      //   </div>
+      //   <div className='flex flex-row mb-10'>
+      //       <div className='flex flex-col'>
+      //           <div className='flex flex-col'>
+      //               <Input
+      //                   type="string"
+      //                   color="white"
+      //                   label="Search Followers Address"
+      //                   onChange={(e) => setCandidatesFollower(e.target.value)}
+      //               />
+      //               <div className='flex flex-row'>
+      //                   <Button onClick={()=>{handleNextFollower()}}>Left</Button>
+      //                   <Button onClick={()=>{handleSearchFollower(candidateFollower)}}>Search</Button>
+      //                   <Button onClick={()=>{handleBackFollower()}}>Right</Button>
+      //               </div>
+      //           </div>
+      //           <div className='max-h-52 overflow-y-auto border w-72'>
+      //           <h1>followers list</h1>
+      //           [{viewFollowersArray?.map((user) => user.toString()).join(", ")}]
+      //           </div>
+      //       </div>
+      //       <div className="flex flex-row items-center">
+      //           <div>
+      //               <MediaRenderer src={PassportFollower && PassportFollower[0]}/>
+      //           </div>
+      //           <div>
+      //               <div>
+      //                   UserName: <IPFSFileViewer ipfsUrl={PassportFollower && PassportFollower[2]} />
+      //               </div>
+      //               <div>
+      //                   Address: {PassportFollower && PassportFollower[1]}
+      //               </div>
+      //               <div>
+      //                   Handle: {PassportFollower && PassportFollower[3]}
+      //               </div>
+      //               <div>
+      //                   Status MSG: <IPFSFileViewer ipfsUrl={PassportFollower && PassportFollower[4]} />
+      //               </div>
+      //               <div>
+      //                   Is Minor: {PassportFollowing && PassportFollowing[6]}
+      //               </div>
+      //               <div>
+      //                   Passport Creation: {PassportFollower && PassportFollower[5]}
+      //               </div>
+      //           </div>
+      //       </div>
+      //   </div>
+      // </div>
     )
 
   }

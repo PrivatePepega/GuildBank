@@ -228,25 +228,32 @@ const openCloseFrenListFunc = () => {
 
 
     return (
-      <div className='flex flex-col justify-center items-center'>
-        <h1 className='my-3 font-bold text-lg mt-7'>
-          Frens
-        </h1>
-        <div className='flex flex-row'>
-          <div className='w-52'>
-            <Input
-              type="text"
-              label="Fren Address"
-              color="white"
-              onChange={(e) => setToFren(e.target.value)}
-            />
-          </div>
-            <Button onClick={()=>{sendFrenRequestFunc(toFren)}}>Send</Button>
-        </div>
-        <div className='flex flex-row gap-3 items-center'>
-          <Button onClick={()=>{openCloseFrenListFunc()}}>Open or Close FrenList</Button>
-          <p>{frenListStatus ? frenListStatus : <p>NA</p>}</p>
-        </div>
+
+      <div>
+
+        <h1>On da workshop bench, free dlc</h1>
+
+
+      </div>
+      // <div className='flex flex-col justify-center items-center'>
+      //   <h1 className='my-3 font-bold text-lg mt-7'>
+      //     Frens
+      //   </h1>
+      //   <div className='flex flex-row'>
+      //     <div className='w-52'>
+      //       <Input
+      //         type="text"
+      //         label="Fren Address"
+      //         color="white"
+      //         onChange={(e) => setToFren(e.target.value)}
+      //       />
+      //     </div>
+      //       <Button onClick={()=>{sendFrenRequestFunc(toFren)}}>Send</Button>
+      //   </div>
+      //   <div className='flex flex-row gap-3 items-center'>
+      //     <Button onClick={()=>{openCloseFrenListFunc()}}>Open or Close FrenList</Button>
+      //     <p>{frenListStatus ? frenListStatus : <p>NA</p>}</p>
+      //   </div>
 
         
 
@@ -254,74 +261,71 @@ const openCloseFrenListFunc = () => {
 
 
 
-        <h1 className='my-3 font-bold text-lg mt-7'>Fren List</h1>
-        <div className='flex flex-col'>
-          <Button onClick={()=>{setRemoveTrue(!removeTrue)}}>Remove Fren</Button>
-          {removeTrue && 
-            <div className='flex flex-row'>
-              <div className='w-52'>
-                <Input
-                  type="string"
-                  color="white"
-                  label="Remove Address"
-                  onChange={(e) => setRemoveThisFren(e.target.value)}
-                />
-              </div>
-              <Button onClick={()=>{removeFrenFunc(removeThisFren)}}>Remove</Button>
-            </div>
-          }
-        </div>
+      //   <h1 className='my-3 font-bold text-lg mt-7'>Fren List</h1>
+      //   <div className='flex flex-col'>
+      //     <Button onClick={()=>{setRemoveTrue(!removeTrue)}}>Remove Fren</Button>
+      //     {removeTrue && 
+      //       <div className='flex flex-row'>
+      //         <div className='w-52'>
+      //           <Input
+      //             type="string"
+      //             color="white"
+      //             label="Remove Address"
+      //             onChange={(e) => setRemoveThisFren(e.target.value)}
+      //           />
+      //         </div>
+      //         <Button onClick={()=>{removeFrenFunc(removeThisFren)}}>Remove</Button>
+      //       </div>
+      //     }
+      //   </div>
 
 
-        <div className='flex flex-row'>
-            <div className='flex flex-col'>
-                <div className='flex flex-col'>
-                    <Input
-                        type="string"
-                        color="white"
-                        label="Search Fren Address"
-                        onChange={(e) => setSearchFren(e.target.value)}
-                    />
-                    <div className='flex flex-row'>
-                        <Button onClick={()=>{handleBackFren()}}>Left</Button>
-                        <Button onClick={()=>{handleSearchFren(searchFren)}}>Search</Button>
-                        <Button onClick={()=>{handleNextFren()}}>Right</Button>
-                    </div>
-                </div>
-                <div className='max-h-52 overflow-y-auto border w-72'>
-                    <h1>fren list</h1>
-                    [{viewFrensArray?.map((user) => user.toString()).join(", ")}]
-                </div>
-            </div>
-            <div className="flex flex-row items-center">
-                <div>
-                    <MediaRenderer src={PassportFren && PassportFren[0]}/>
-                </div>
-                <div>
-                    <div>
-                        UserName: <IPFSFileViewer ipfsUrl={PassportFren && PassportFren[2]} />
-                    </div>
-                    <div>
-                        Address: {PassportFren && PassportFren[1]}
-                    </div>
-                    <div>
-                        Alias: {PassportFren && PassportFren[3]}
-                    </div>
-                    <div>
-                        Status MSG: <IPFSFileViewer ipfsUrl={PassportFren && PassportFren[4]} />
-                    </div>
-                    <div>
-                        Is Minor: {PassportFren && PassportFren[6]}
-                    </div>
-                    <div>
-                        Passport Creation: {PassportFren && PassportFren[5]}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
+      //   <div className='flex flex-row'>
+      //       <div className='flex flex-col'>
+      //           <div className='flex flex-col'>
+      //               <Input
+      //                   type="string"
+      //                   color="white"
+      //                   label="Search Fren Address"
+      //                   onChange={(e) => setSearchFren(e.target.value)}
+      //               />
+      //               <div className='flex flex-row'>
+      //                   <Button onClick={()=>{handleBackFren()}}>Left</Button>
+      //                   <Button onClick={()=>{handleSearchFren(searchFren)}}>Search</Button>
+      //                   <Button onClick={()=>{handleNextFren()}}>Right</Button>
+      //               </div>
+      //           </div>
+      //           <div className='max-h-52 overflow-y-auto border w-72'>
+      //               <h1>fren list</h1>
+      //               [{viewFrensArray?.map((user) => user.toString()).join(", ")}]
+      //           </div>
+      //       </div>
+      //       <div className="flex flex-row items-center">
+      //           <div>
+      //               <MediaRenderer src={PassportFren && PassportFren[0]}/>
+      //           </div>
+      //           <div>
+      //               <div>
+      //                   UserName: <IPFSFileViewer ipfsUrl={PassportFren && PassportFren[2]} />
+      //               </div>
+      //               <div>
+      //                   Address: {PassportFren && PassportFren[1]}
+      //               </div>
+      //               <div>
+      //                   Alias: {PassportFren && PassportFren[3]}
+      //               </div>
+      //               <div>
+      //                   Status MSG: <IPFSFileViewer ipfsUrl={PassportFren && PassportFren[4]} />
+      //               </div>
+      //               <div>
+      //                   Is Minor: {PassportFren && PassportFren[6]}
+      //               </div>
+      //               <div>
+      //                   Passport Creation: {PassportFren && PassportFren[5]}
+      //               </div>
+      //           </div>
+      //       </div>
+      //   </div>
 
 
 
@@ -332,67 +336,70 @@ const openCloseFrenListFunc = () => {
 
 
 
-        <h1 className='my-3 font-bold text-lg mt-7'>Fren Request List</h1>
-        <div className='flex flex-row'>
-          <div className='w-52'>
-            <Input
-              type="text"
-              label="Fren Request Address"
-              color="white"
-              onChange={(e) => setFrenRequest(e.target.value)}
-            />
-          </div>
 
-            <Button onClick={()=>{acceptFrenRequestFunc(frenRequest)}}>Accept</Button>
-            <Button onClick={()=>{declineFrenRequestFunc(frenRequest)}}>Decline</Button>
-        </div>
-        <div className='flex flex-row mb-8'>
-            <div className='flex flex-col'>
-                <div className='flex flex-col'>
-                  <Input
-                    type="string"
-                    color="white"
-                    label="Look at Request Address"
-                    onChange={(e) => setSearchRequest(e.target.value)}
-                  />
-                    <div className='flex flex-row'>
-                        <Button onClick={()=>{handleBackRequest()}}>Left</Button>
-                        <Button onClick={()=>{handleSearchRequest(searchRequest)}}>Search</Button>
-                        <Button onClick={()=>{handleNextRequest()}}>Right</Button>
-                    </div>
-                </div>
-                <div className='max-h-52 overflow-y-auto border w-72'>
-                    <h1>fren request list:</h1>
-                    [{viewFrenRequestList?.map((user) => user.toString()).join(", ")}]
-                </div>
-            </div>
-            <div className="flex flex-row items-center">
-                <div>
-                    <MediaRenderer src={PassportRequest && PassportRequest[0]}/>
-                </div>
-                <div>
-                  <div>
-                      UserName: <IPFSFileViewer ipfsUrl={PassportRequest && PassportRequest[2]} />
-                  </div>
-                  <div>
-                      Address: {PassportRequest && PassportRequest[1]}
-                  </div>
-                  <div>
-                      Alias: {PassportRequest && PassportRequest[3]}
-                  </div>
-                  <div>
-                      Status MSG: <IPFSFileViewer ipfsUrl={PassportRequest && PassportRequest[4]} />
-                  </div>
-                  <div>
-                      Is Minor: {PassportRequest && PassportRequest[6]}
-                  </div>
-                  <div>
-                      Passport Creation: {PassportRequest && PassportRequest[5]}
-                  </div>
-                </div>
-            </div>
-        </div>
-      </div>
+
+
+      //   <h1 className='my-3 font-bold text-lg mt-7'>Fren Request List</h1>
+      //   <div className='flex flex-row'>
+      //     <div className='w-52'>
+      //       <Input
+      //         type="text"
+      //         label="Fren Request Address"
+      //         color="white"
+      //         onChange={(e) => setFrenRequest(e.target.value)}
+      //       />
+      //     </div>
+
+      //       <Button onClick={()=>{acceptFrenRequestFunc(frenRequest)}}>Accept</Button>
+      //       <Button onClick={()=>{declineFrenRequestFunc(frenRequest)}}>Decline</Button>
+      //   </div>
+      //   <div className='flex flex-row mb-8'>
+      //       <div className='flex flex-col'>
+      //           <div className='flex flex-col'>
+      //             <Input
+      //               type="string"
+      //               color="white"
+      //               label="Look at Request Address"
+      //               onChange={(e) => setSearchRequest(e.target.value)}
+      //             />
+      //               <div className='flex flex-row'>
+      //                   <Button onClick={()=>{handleBackRequest()}}>Left</Button>
+      //                   <Button onClick={()=>{handleSearchRequest(searchRequest)}}>Search</Button>
+      //                   <Button onClick={()=>{handleNextRequest()}}>Right</Button>
+      //               </div>
+      //           </div>
+      //           <div className='max-h-52 overflow-y-auto border w-72'>
+      //               <h1>fren request list:</h1>
+      //               [{viewFrenRequestList?.map((user) => user.toString()).join(", ")}]
+      //           </div>
+      //       </div>
+      //       <div className="flex flex-row items-center">
+      //           <div>
+      //               <MediaRenderer src={PassportRequest && PassportRequest[0]}/>
+      //           </div>
+      //           <div>
+      //             <div>
+      //                 UserName: <IPFSFileViewer ipfsUrl={PassportRequest && PassportRequest[2]} />
+      //             </div>
+      //             <div>
+      //                 Address: {PassportRequest && PassportRequest[1]}
+      //             </div>
+      //             <div>
+      //                 Alias: {PassportRequest && PassportRequest[3]}
+      //             </div>
+      //             <div>
+      //                 Status MSG: <IPFSFileViewer ipfsUrl={PassportRequest && PassportRequest[4]} />
+      //             </div>
+      //             <div>
+      //                 Is Minor: {PassportRequest && PassportRequest[6]}
+      //             </div>
+      //             <div>
+      //                 Passport Creation: {PassportRequest && PassportRequest[5]}
+      //             </div>
+      //           </div>
+      //       </div>
+      //   </div>
+      // </div>
     )
 
   }
