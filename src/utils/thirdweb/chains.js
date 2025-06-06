@@ -9,4 +9,4 @@ const chain = defineChain({
 })
 
 
-export const chainById = chain;
+export const chainById = Base;
