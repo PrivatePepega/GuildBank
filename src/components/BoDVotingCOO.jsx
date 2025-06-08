@@ -18,7 +18,6 @@ import {uploadData} from "@/utils/functionDump/Passport.js"
 
 
 
-
 const BoDVotingCOO = () => {
 
 
@@ -100,7 +99,10 @@ const BoDVotingCOO = () => {
     params: [viewCandidate],
   });
 
-
+  const { data: electionCounter, electionCounterLoad } = useReadContract({
+    contract: contractBallot,
+    method: "function ElectionCounter() returns (uint256)",
+  });
 
 //   function findObjectIndex(Candidate) {
 //     const index = viewCandidateArray?.findIndex(
@@ -198,7 +200,7 @@ const BoDVotingCOO = () => {
             <div>
               Handle: {Passport && Passport[3]}
             </div>
-            <Button onClick={()=>{voteTx()}}>Vote</Button>
+            {viewCandidatesData[4] === electionCounter && <Button onClick={()=>{voteTx()}}>Vote</Button>}
           </div>
         </div>
 

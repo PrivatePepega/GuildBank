@@ -100,7 +100,10 @@ const BoDVotingCEO = () => {
     params: [viewCandidate],
   });
 
-
+  const { data: electionCounter, electionCounterLoad } = useReadContract({
+    contract: contractBallot,
+    method: "function ElectionCounter() returns (uint256)",
+  });
 
 //   function findObjectIndex(Candidate) {
 //     const index = viewCandidateArray?.findIndex(
@@ -198,7 +201,7 @@ const BoDVotingCEO = () => {
             <div>
               Handle: {Passport && Passport[3]}
             </div>
-            <Button onClick={()=>{voteTx()}}>Vote</Button>
+            {viewCandidatesData[4] === electionCounter && <Button onClick={()=>{voteTx()}}>Vote</Button>}
           </div>
       </div>
 
