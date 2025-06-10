@@ -21,6 +21,7 @@ import {contractPassport} from "@/utils/functionDump/getContracts.js"
 import * as openpgp from "openpgp";
 import { createHash } from "crypto"; // Node.js crypto for SHA-256
 import { prepareContractCall } from "thirdweb";
+import { useReadContract } from "thirdweb/react";
 
 
 
