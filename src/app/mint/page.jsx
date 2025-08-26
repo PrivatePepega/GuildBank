@@ -15,6 +15,7 @@ import { prepareContractCall } from "thirdweb";
 
 import { ButtonGroup, Button, Input } from "@material-tailwind/react";
 import WoWUpload from "@/components/wowFileUpload";
+import Link from "next/link";
 
 
 
