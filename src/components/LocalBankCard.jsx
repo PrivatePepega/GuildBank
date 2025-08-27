@@ -9,7 +9,7 @@ import {
     Button,
   } from "@material-tailwind/react";
 
-  import Chapter3 from "/public/NewsLetter/Chapter 4.jpg";
+  import Chapter from "/public/NewsLetter/Chapter 4.jpg";
   import Image from "next/image";
 
 
@@ -22,7 +22,7 @@ const LocalBankCard = () => {
         <CardHeader color="blue-gray" className="relative h-56">
           <Image
             className="w-full h-full object-cover"
-              src={Chapter3}
+              src={Chapter}
               alt="card-image"
           />
         </CardHeader>
