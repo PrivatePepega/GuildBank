@@ -9,17 +9,23 @@ import {
     Button,
   } from "@material-tailwind/react";
 
+  import {chapter3} from "@components/Data/NewsCard.js";
+  import Image from "next/image";
 
 
 
 const GuildBankCard = () => {
 
 
+
+
+
   return (
       <Card className="mt-6 w-full">
         <CardHeader color="blue-gray" className="relative h-56">
-          <img
-            src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+          <Image
+          className="w-full h-full object-cover"
+            src={chapter3.img}
             alt="card-image"
           />
         </CardHeader>
@@ -32,7 +38,7 @@ const GuildBankCard = () => {
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
-          <Button href="https://www.figma.com/board/EU3N1f6OxS2AFvcNEYxfLD/Untitled?node-id=1-76&t=WyYuoFWutw1FiT7y-1">Read More</Button>
+          <Button href="https://www.figma.com/board/EU3N1f6OxS2AFvcNEYxfLD/Chapter-3--What-it-is-GuildBank-?node-id=0-1&p=f&t=C7Xf9yCyXSev6zi8-0">Figma</Button>
         </CardFooter>
       </Card>
   )
