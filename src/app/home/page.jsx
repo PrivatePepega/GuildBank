@@ -45,8 +45,8 @@ const page = () => {
           </div>
         </div>
         <div className='flex flex-col gap-2'>
-          <h2>
-            NewsLetter
+          <h2 className='text-4xl my-8'>
+            Newsletter
           </h2>
           <InformationGallery />
         </div>

@@ -12,6 +12,7 @@ import {
 
   import Chapter from "/public/NewsLetter/Chapter 3.jpg";
   import Image from "next/image";
+import Link from "next/link";
 
 
 const GuildBankCard = () => {
@@ -35,7 +36,14 @@ const GuildBankCard = () => {
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
-          <Button href="https://www.figma.com/board/EU3N1f6OxS2AFvcNEYxfLD/Untitled?node-id=1-76&t=WyYuoFWutw1FiT7y-1">Read More</Button>
+          <Link
+            href="https://www.figma.com/board/EU3N1f6OxS2AFvcNEYxfLD/Untitled?node-id=1-76&t=WyYuoFWutw1FiT7y-1"
+            target="_blank" // Opens link in a new tab
+            rel="noopener noreferrer" // Security best practice
+            passHref
+          >
+            <Button>Figma</Button>
+          </Link>       
         </CardFooter>
       </Card>
   )

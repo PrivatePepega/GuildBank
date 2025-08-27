@@ -11,6 +11,7 @@ import {
 
   import Chapter from "/public/NewsLetter/Chapter 4.jpg";
   import Image from "next/image";
+  import Link from "next/link";
 
 
 const LocalBankCard = () => {
@@ -35,7 +36,14 @@ const LocalBankCard = () => {
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
-          <Button href="https://www.figma.com/board/q3ZsRJAauMWzmEcvo7wbbB/Chapter-4?t=I6phj0nM3q9X8NyA-0">Figma</Button>
+          <Link
+            href="https://www.figma.com/board/q3ZsRJAauMWzmEcvo7wbbB/Chapter-4?t=I6phj0nM3q9X8NyA-0"
+            target="_blank" // Opens link in a new tab
+            rel="noopener noreferrer" // Security best practice
+            passHref
+          >
+            <Button>Figma</Button>
+          </Link>  
         </CardFooter>
       </Card>
   )
