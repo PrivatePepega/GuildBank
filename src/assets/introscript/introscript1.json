@@ -28,7 +28,8 @@
     {
         "step": 3,
         "script": "This will explain.",
-        "image": "/intro/img4-2.jpg"
+        "image": "/intro/img4-2.jpg",
+        "link": "https://www.figma.com/board/48U8aa2nWoJgh9mzYTse8z/Chapter-1--Login-?node-id=1-72&t=BYFfWvsB4vweAk5R-0"
     },
     {
         "step": 4,

@@ -254,11 +254,6 @@ const copyKey = async (key, type) => {
 
 
 
-  const { data: aliasToAddress, aliasToAddressLoading } = useReadContract({
-    contract: contractPassport,
-    method: "function aliasToAddress(string) returns (address)",
-    params: [alias],
-  });
 
 
 
@@ -365,7 +360,8 @@ const copyKey = async (key, type) => {
               className=" !border-t-white-200 "
               onChange={(e) => setAlias(e.target.value)}
             />
-            {aliasToAddress != 0x0000000000000000000000000000000000000000 && <p>handle taken, try again</p>}
+
+
 
 
   <Typography variant="h6" color="white" className="mt-3">
@@ -647,7 +643,7 @@ const copyKey = async (key, type) => {
               }
             }}
           />
-          {checkTOS && userNameCID && alias && activeAccount.address && msgStatus && hash && checkTOS && aliasToAddress != 0x0000000000000000000000000000000000000000?                     
+          {checkTOS && userNameCID && alias && activeAccount.address && msgStatus && hash && checkTOS ?                     
             <Button className="mt-6 mb-6" fullWidth onClick={() => {onSubmit()}}>
               gib de Passport,
             </Button> : ""

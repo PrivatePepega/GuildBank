@@ -14,7 +14,6 @@ import {
   Button,
 } from "@material-tailwind/react";
 
-import Chapter from "/public/NewsLetter/Chapter 3.jpg";
 import Link from "next/link";
 
 

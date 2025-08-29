@@ -18,6 +18,7 @@ import { useActiveAccount } from "thirdweb/react";
 import { chainById } from "@/utils/thirdweb/chains";
 import {client} from "@/utils/thirdweb/client";
 
+  import Link from "next/link";
 
 
 
@@ -59,9 +60,21 @@ const [finished, setFinished] = useState(false);
         <div className='flex w-1/2 h-60 justify-center items-center p-4 rounded-lg'>
           <Image className='h-full object-contain ' src={scriptJson.items[page].image} alt="image" width={300} height={300} />
         </div>
-        <div className='flex w-1/2 h-60 justify-center items-center p-4'>
+        <div className='flex w-1/2 h-60 justify-center items-center p-4 flex-col gap-3'>
           {scriptJson.items[page].script}
-        </div> 
+          {page === 5 &&
+          <Link
+            href="https://www.figma.com/board/48U8aa2nWoJgh9mzYTse8z/Chapter-1--Login-?node-id=1-72&t=BYFfWvsB4vweAk5R-0"
+            target="_blank" // Opens link in a new tab
+            rel="noopener noreferrer" // Security best practice
+            passHref
+          >
+            <Button >Figma</Button>
+          </Link>  
+        }
+        </div>
+
+        
       </div>
 
       <div className='flex flex-col gap-3'>
