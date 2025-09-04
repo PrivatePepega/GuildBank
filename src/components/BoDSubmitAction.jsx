@@ -89,8 +89,8 @@ const IPFSThis = () =>{
     const combinedTXipfs = {proposalExplanation, functionSignature}
     const blob = new Blob([JSON.stringify(combinedTXipfs)], { type: 'application/json' });
     const txIpfs = new File([blob], `TxIpfs.txt`, { type: 'application/json' });
-
     const url = uploadData(txIpfs); 
+    console.log("ipfsData", url);
     if (url) {
         url.then(res => {setTxIPFS(res)});
     }
@@ -112,9 +112,11 @@ const encodeFunctionCall = () => {
       .replace(/^function\s+/, "function ") // ensure single space after "function"
       .trim();
   
+
       const iface = new Interface([cleanedSignature]);
   
       const fnNameMatch = cleanedSignature.match(/function\s+(\w+)\s*\(/);
+      console.log("fnNameMatch", fnNameMatch);
       const fnName = fnNameMatch ? fnNameMatch[1] : null;
   
       if (!fnName) {
@@ -146,7 +148,6 @@ const encodeFunctionCall = () => {
     }
   };
   
-
 
 
 
@@ -253,7 +254,7 @@ const encodeFunctionCall = () => {
         </div>
         <div className="my-4">
             <h2>Function Signature:</h2>
-            <p className="my-2">Example: function updateFundCheck (uint256,string)</p>
+            <p className="my-2">Example: function addTokenTreasury (string memory _tokenName, address _TokenAddress, bool _isErc20, uint256 _id)</p>
             <Input
                 type="text"
                 label="Enter Function Signature"
@@ -299,7 +300,6 @@ const encodeFunctionCall = () => {
                     placeholder={pair.type ? `Enter ${pair.type}` : "Select type first"}
                 />
                 )}
-
                 <Button onClick={() => removePair(index)}>Remove</Button>
             </div>
         ))}

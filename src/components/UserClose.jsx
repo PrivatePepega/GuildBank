@@ -77,7 +77,7 @@ const deleteSocialPassportFunc = () => {
         {/* <Button onClick={()=>{ActionAccept()}}>Accept Ticket</Button> */}
 
             <Button onClick={()=>{deletePassportFunc()}}>Delete Passport</Button>
-            <Button onClick={deleteSocialPassportFunc}>Delete SocialPassport</Button>
+            {/* <Button onClick={deleteSocialPassportFunc}>Delete SocialPassport</Button> */}
 
         </div>
 

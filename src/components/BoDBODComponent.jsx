@@ -60,7 +60,6 @@ const BoDBODComponent = () => {
 
   const [actionTicket, setActionTicket] = useState();
   const [humanReadableDateAction, setHumanReadableDateAction] = useState("");
-  const [decodeFunctionSignature, setDecodeFunctionSignature] = useState("");
   const [decodedData, setDecodedData] = useState([]);
 
 
@@ -143,7 +142,6 @@ const BoDBODComponent = () => {
 
 
 
-console.log(actionTransaction ? actionTransaction[0] : null)
 
 
 
@@ -308,7 +306,7 @@ const decodeFunctionCall = () => {
 
 
                 <div className="mb-12">
-                  <ul className="my-6 w-full h-full overflow-auto">
+                  <ul className="my-6 w-full h-full overflow-auto flex flex-col gap-1">
                     <li><strong>IPFS Link:</strong></li>
                     <li><IPFSFileViewer ipfsUrl={actionTransaction ? actionTransaction[0] : null} /></li>
                     <li><strong>Submitter:</strong></li>

@@ -28,9 +28,12 @@ import PGPGenerator from './PGPGenerator';
 
 
 const UserPassport = () => {
-  const activeAccount = useActiveAccount();
-  const { passportBalance, isLoading } = useCheckPassport(contractPassport, activeAccount);
 
+  const activeAccount = useActiveAccount();
+
+
+  
+  const { passportBalance, isLoading } = useCheckPassport(contractPassport, activeAccount);
   const { data: Passport, PassportLoad } = useReadContract({
     contract: contractPassport,
     method: "function Passport(address) returns (string, address, string, string, string, uint256, bool, string)",
@@ -41,10 +44,10 @@ const UserPassport = () => {
 
 
 
-  const [userName, setUserName] = useState(null);
-  const [pfpCID, setPfpCID] = useState(null);
-  const [userNameCID, setUserNameCID] = useState(null);
-  const [MSG, setMSG] = useState(null);
+  const [userName, setUserName] = useState("");
+  const [pfp, setPfp] = useState();
+  const [MSGIPFS, setMSGIPFS] = useState();
+  const [MSG, setMSG] = useState();
   const [userAlias, setUserAlias] = useState("");
   const [minor, setMinor] = useState();
 
@@ -62,15 +65,14 @@ const UserPassport = () => {
 const uploadPFP = (_file) => {
   const url = uploadData(_file);
   if (url) {
-    url.then(res => {setPfpCID(res)});
-    changePFPFunc(pfpCID);
+    url.then(res => {changePFPFunc(res);});
   }
 };
 const { mutate: changePFP, data: changePFPData } = useSendTransaction();
 const changePFPFunc = (_ipfs) => {
   const changePFPTransaction = prepareContractCall({
     contract: contractPassport,
-    method: "function changePFP(string memory _profilePic) public",
+    method: "function changePFP(string memory _profilePic)",
     params: [_ipfs],
   });
   changePFP(changePFPTransaction);
@@ -93,16 +95,14 @@ const uploadUserName = (_data) => {
   const renamedFile = new File([blob], `userName.txt`, { type: 'text/plain' });
   const url = uploadData(renamedFile); 
   if (url) {
-    url.then(res => {setUserNameCID(res)});
-    changeUserNameFunc(userNameCID);
+    url.then(res => {changeUserNameFunc(res);});
   }
-  setUserName(userNameCID);
 };
 const { mutate: changeUserName, data: changeUserNameData } = useSendTransaction();
 const changeUserNameFunc = (_userName) => {
   const changeUserNameTransaction = prepareContractCall({
     contract: contractPassport,
-    method: "function changeUserName(string memory _userName) public",
+    method: "function changeUserName(string memory _userName)",
     params: [_userName],
   });
   changeUserName(changeUserNameTransaction);
@@ -124,7 +124,7 @@ const { mutate: changeAlias, data: changeAliasData } = useSendTransaction();
 const changeAliasFunc = (_userAlias) => {
   const changeAliasTransaction = prepareContractCall({
     contract: contractPassport,
-    method: "function changeHandle(string memory _userAlias) public",
+    method: "function changeHandle(string memory _userAlias)",
     params: [_userAlias],
   });
   changeAlias(changeAliasTransaction);
@@ -140,29 +140,41 @@ const changeAliasFunc = (_userAlias) => {
 
 
 
+const uploadMSG = (_msg) =>{
+  if(!chainMode){
+    const url = uploadData(_msg);
+    if (url) {
+      url.then(res => {changeMSGFunc(res)});
+    }
+  }else{
+    changeMSGFunc(_msg);
+  }
 
+}
 const { mutate: changeMSG, data: changeMSGData } = useSendTransaction();
 const changeMSGFunc = (msg) => {
   const changeMSGTransaction = prepareContractCall({
     contract: contractPassport,
-    method: "function changeMSG(string memory _msg) public",
+    method: "function changeMSG(string memory _msg)",
     params: [msg],
   });
   changeMSG(changeMSGTransaction);
 };
-const uploadMSG = (_msg) =>{
-  const url = uploadData(_msg);
-  if (url) {
-    url.then(res => {setMSG(res)});
-    changeMSGFunc(MSG);
-  }
-}
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 const [accountCreation, setAccountCreation] = useState(false);
-
 useEffect(() => {
   if (Passport && Passport[5]) {
     const unixTimestamp = Number(Passport[5]);
@@ -196,6 +208,7 @@ const [UserTrue, setUserTrue] = useState(false);
 const [AliasTrue, setAliasTrue] = useState(false);
 const [MSGTrue, setMSGTrue] = useState(false);
 const [passwordTrue, setPasswordTrue] = useState(false);
+const [chainMode, setChainMode] = useState(true);
 
 
 
@@ -232,10 +245,9 @@ const [passwordTrue, setPasswordTrue] = useState(false);
                   }
                   }
                 />
-                <Button onClick={() => uploadPFP(userName)} >
+                <Button onClick={() => uploadPFP(pfp)} >
                   Upload
                 </Button>
-                <p>{userNameCID}</p>
               </div>
             }
           </div>
@@ -309,27 +321,54 @@ const [passwordTrue, setPasswordTrue] = useState(false);
 
 
         <div>
-          <Button onClick={() => {setMSGTrue(!MSGTrue)}}>Status Msg</Button><span>{Passport && Passport[4]}</span>
+          <Button onClick={() => {setMSGTrue(!MSGTrue)}}>Status Msg</Button>
+          <IPFSFileViewer ipfsUrl={Passport && Passport[4]} />
           {MSGTrue && 
-            <div className='flex flex-row'>
-              <div className='w-52'>
-                <Input
-                  type="text"
-                  size="lg"
-                  color="white"
-                  label="MSG Status"
-                  onChange={(e) =>{
-                    setMSG(e.target.value);
-                    }
-                  }
-                />
+            <div>
+              <Input
+                type="text"
+                size="lg"
+                label="Metaverse Public Status"
+                color="white"
+                onChange={(e) => {setMSG(e.target.value)}}
+              />
+              <div className="flex flex-row gap-1">
+                <Button
+                onClick={() => setChainMode(false)}
+                loading={chainMode ? false : true}
+                >
+                  IPFS
+                </Button>
+                <Button
+                onClick={() => setChainMode(true)}
+                loading={chainMode ? true : false}
+                >
+                  Chain
+                </Button>
+                <Button onClick={() => uploadMSG(MSG)}>
+                  Upload
+                </Button>
               </div>
-              <Button onClick={() => uploadMSG(MSG)}>
-                Upload
-              </Button>
             </div>
           }      
         </div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

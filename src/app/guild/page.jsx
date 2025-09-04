@@ -69,7 +69,7 @@ const BoD = () => {
                 <Button onClick={()=>{setStateLocalGuild(1)}}>Money</Button>
                 <Button onClick={()=>{setStateLocalGuild(2)}}>DAO Treasury</Button>
                 <Button onClick={()=>{setStateLocalGuild(3)}}>BoD Treasury</Button>
-                <Button onClick={()=>{setStateLocalGuild(4)}}>Vault</Button>
+                {/* <Button onClick={()=>{setStateLocalGuild(4)}}>Vault</Button> */}
               </ButtonGroup>
             </div>
               {StateLocalGuild === 0 &&
@@ -92,11 +92,11 @@ const BoD = () => {
                   <BoDTreasuryComponent />
                 </div>
               }
-              {StateLocalGuild === 4 &&
+              {/* {StateLocalGuild === 4 &&
                 <div>
                  <BoDDaoBurnerComponent />
                 </div>
-              }
+              } */}
 
 
 

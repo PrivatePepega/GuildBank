@@ -50,7 +50,7 @@ const BoDVotingCCO = () => {
       const joinAsCandidateTransaction = prepareContractCall({
       contract: contractBallot,
       method: "function joinAsCandidate(string memory _ipfsLink, uint8 _role)",
-      params: [candidateLink, 0],
+      params: [candidateLink, 3],
       })
       joinAsCandidate(joinAsCandidateTransaction);
   };
@@ -59,7 +59,7 @@ const BoDVotingCCO = () => {
     const voteTx = () => {
       const voteTransaction = prepareContractCall({
       contract: contractBallot,
-      method: "function voteCCO (address _candidate)",
+      method: "function voteCCO(address _candidate)",
       params: [viewCandidate],
       })
       vote(voteTransaction);
@@ -202,7 +202,7 @@ const BoDVotingCCO = () => {
             <div>
               Handle: {Passport && Passport[3]}
             </div>
-            {viewCandidatesData[4] === electionCounter && <Button onClick={()=>{voteTx()}}>Vote</Button>}
+            {viewCandidatesData ? viewCandidatesData[4] === electionCounter && <Button onClick={()=>{voteTx()}}>Vote</Button> : ""}
           </div>
         </div>
 
@@ -222,7 +222,7 @@ const BoDVotingCCO = () => {
         onChange={(e) => setCandidates(e.target.value)}
       />
       {/* <Button onClick={()=>{handleBack()}}>Left</Button> */}
-      <Button onClick={()=>{setviewCandidates()}}>Search</Button>
+      <Button onClick={()=>{setviewCandidates(Candidate)}}>Search</Button>
       {/* <Button onClick={()=>{handleNext()}}>Right</Button> */}
 
       {/* <div>

@@ -28,10 +28,10 @@ const BoDVotingCEO = () => {
   const [candidateIPFS, setCandidateIPFS] = useState("");
   const [candidateLink, setCandidateLink] = useState("");
   const [Candidate, setCandidates] = useState("");
-  const [index, setIndex] = useState(0);
   const [viewCandidate, setviewCandidates] = useState("");
 
 
+  
 
   
   // const { data: viewCandidateArray, viewCandidateArrayLoading } = useReadContract({
@@ -54,19 +54,17 @@ const BoDVotingCEO = () => {
       joinAsCandidate(joinAsCandidateTransaction);
   };
 
+
   const { mutate: vote, data: voteData } = useSendTransaction();
     const voteTx = () => {
       const voteTransaction = prepareContractCall({
       contract: contractBallot,
-      method: "function voteCEO (address _candidate)",
+      method: "function voteCEO(address _candidate)",
       params: [viewCandidate],
       })
       vote(voteTransaction);
   };
 
-
-
-    
 
 
 
@@ -81,7 +79,6 @@ const BoDVotingCEO = () => {
       url.then(res => {setCandidateLink(res)});
     }
   };
-
 
 
 
@@ -153,7 +150,6 @@ const BoDVotingCEO = () => {
 
 
 
-
   return (
     <div className="mt-7">
 
@@ -201,14 +197,16 @@ const BoDVotingCEO = () => {
             <div>
               Handle: {Passport && Passport[3]}
             </div>
-            {viewCandidatesData[4] === electionCounter && <Button onClick={()=>{voteTx()}}>Vote</Button>}
+            {viewCandidatesData ? viewCandidatesData[4] === electionCounter && <Button onClick={()=>{voteTx()}}>Vote</Button> : ""}
           </div>
       </div>
+
 
 
         <h2 className='my-3 font-bold text-lg'>
           Voting Booth:
         </h2>
+
 
 
 
@@ -220,7 +218,7 @@ const BoDVotingCEO = () => {
         onChange={(e) => setCandidates(e.target.value)}
       />
       {/* <Button onClick={()=>{handleBack()}}>Left</Button> */}
-      <Button onClick={()=>{setviewCandidates()}}>Search</Button>
+      <Button onClick={()=>{setviewCandidates(Candidate)}}>Search</Button>
       {/* <Button onClick={()=>{handleNext()}}>Right</Button> */}
 
       {/* <div>

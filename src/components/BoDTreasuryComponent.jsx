@@ -89,18 +89,15 @@ const { data: showTreasuryArray, isLoading: BoDTreasuryLoad } = useReadContract(
 
 
 
-    const [updateToken, setUpdateToken] = useState("");
     const { mutate: updateFundCheck, data: updateFundCheckDAta } = useSendTransaction();
 
     const updateFundCheckTx = () => {
       const updateFundCheckTrans = prepareContractCall({
           contract: contractBoDTreasury,
-          method: "function updateFundCheck(string memory _tokenName)",
-          params: [updateToken ? updateToken : null],
+          method: "function updateFundCheck()",
         })
         updateFundCheck(updateFundCheckTrans);
       };
-
 
 
 
@@ -133,7 +130,7 @@ const { data: showTreasuryArray, isLoading: BoDTreasuryLoad } = useReadContract(
           Token Amount: {Number(showAmount)}
         </li>
         <li>
-          Token Addres: {showTokenAddress}
+          Token Address: {showTokenAddress}
         </li>
         <li>
           Token Id: {Number(showTokenId)}
@@ -145,24 +142,16 @@ const { data: showTreasuryArray, isLoading: BoDTreasuryLoad } = useReadContract(
       <h3 className='my-3 font-bold text-lg'>
         Update Treasury
       </h3>
-      <ul>
-        <li>
-        Update Treasury Token Funds:
-        <div className='w-52'>
-            <Input
-              type="text"
-              size="lg"
-              label="Update dis token"
-                color="white"
-              className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-              onChange={(e) => {setUpdateToken(e.target.value)}}
-            />
-          </div>
-          <Button onClick={() => updateFundCheckTx()}>
-            Update
-          </Button>
-        </li>
-      </ul>
+      <div className='flex flex-col gap-2'>
+        <p>
+          Update Treasury Token Funds:
+        </p>
+        <Button onClick={() => updateFundCheckTx()}>
+          Update
+        </Button>
+      </div>
+
+
     </div>
   )
 }

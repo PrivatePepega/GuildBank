@@ -51,13 +51,13 @@ const User = () => {
         <div className='flex flex-col justify-center items-center mt-10'>
           <ButtonGroup >
             <Button onClick={()=>{pushToMain()}}>get</Button>
-            <Button onClick={createSocialPassportFunc}>get</Button>
+            {/* <Button onClick={createSocialPassportFunc}>get</Button> */}
           </ButtonGroup>
           <ButtonGroup>
             <Button onClick={()=>{setPassportIndex(1)}}>X</Button>
             <Button onClick={()=>{setPassportIndex(2)}}>Passport</Button>
-            <Button onClick={()=>{setPassportIndex(3)}}>Social</Button>
-            <Button onClick={()=>{setPassportIndex(4)}}>search</Button>
+            {/* <Button onClick={()=>{setPassportIndex(3)}}>Social</Button>
+            <Button onClick={()=>{setPassportIndex(4)}}>search</Button> */}
           </ButtonGroup>
         </div>
 
@@ -69,12 +69,12 @@ const User = () => {
         {passportIndex === 2 &&
           <UserPassport />
         }
-        {passportIndex === 3 &&
+        {/* {passportIndex === 3 &&
           <UserSocial />
-        }
-        {passportIndex === 4 &&
+        } */}
+        {/* {passportIndex === 4 &&
           <UserOthers />
-        }
+        } */}
 
 
       </div>

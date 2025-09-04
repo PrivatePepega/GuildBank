@@ -34,7 +34,6 @@ const BoDElectionComponent = () => {
         params: [activeAccount ? activeAccount.address : null],
       });
 
-
     const { data: getElectionSeason, getElectionSeasonLoading } = useReadContract({
         contract: contractGovernorElection,
         method: "function getElectionSeason() returns(bool)",
@@ -90,7 +89,7 @@ const BoDElectionComponent = () => {
     const activationCEOTx = () => {
       const activationCEOTransaction = prepareContractCall({
       contract: contractGovernorElection,
-      method: "function activationCEO ()",
+      method: "function activationCEO()",
       })
       activationCEO(activationCEOTransaction);
     };
@@ -117,7 +116,7 @@ const BoDElectionComponent = () => {
     const activationCTOTx = () => {
       const activationCTOTransaction = prepareContractCall({
       contract: contractGovernorElection,
-      method: "function activationCTO ()",
+      method: "function activationCTO()",
       })
       activationCTO(activationCTOTransaction);
     };
@@ -145,7 +144,7 @@ const BoDElectionComponent = () => {
     const activationCFOTx = () => {
       const activationCFOTransaction = prepareContractCall({
       contract: contractGovernorElection,
-      method: "function activationCFO ()",
+      method: "function activationCFO()",
       })
       activationCFO(activationCFOTransaction);
     };
@@ -170,7 +169,7 @@ const BoDElectionComponent = () => {
     const activationCCOTx = () => {
       const activationCCOTransaction = prepareContractCall({
       contract: contractGovernorElection,
-      method: "function activationCCO ()",
+      method: "function activationCCO()",
       })
       activationCCO(activationCCOTransaction);
     };
@@ -195,7 +194,7 @@ const BoDElectionComponent = () => {
     const activationCOOTx = () => {
       const activationCOOTransaction = prepareContractCall({
       contract: contractGovernorElection,
-      method: "function activationCOO ()",
+      method: "function activationCOO()",
       })
       activationCOO(activationCOOTransaction);
     };
@@ -205,7 +204,6 @@ const BoDElectionComponent = () => {
 
 
     const [VotingState, setVotingState] = useState(0);
-
 
 
 
@@ -294,7 +292,7 @@ const BoDElectionComponent = () => {
 
 
                     <div>
-                        {viewTopCandidatesCEOArray[0] === "0x0000000000000000000000000000000000000000" ?
+                        {viewTopCandidatesCEOArray[0] === "0x0000000000000000000000000000000000000000" && viewTopCandidatesCEOArray[1] === "0x0000000000000000000000000000000000000000" && viewTopCandidatesCEOArray[2] === "0x0000000000000000000000000000000000000000" && viewTopCandidatesCEOArray[3] === "0x0000000000000000000000000000000000000000" && viewTopCandidatesCEOArray[4] === "0x0000000000000000000000000000000000000000"?
                         (
                         <div>
                             <p>
