@@ -16,6 +16,7 @@ import InformationGallery from '@/components/InformationGallery'; // Adjust the 
 
 // Contracts
 import { useActiveAccount } from "thirdweb/react";
+import Socials from '@/components/Socials';
 
 
 const page = () => {
@@ -50,6 +51,7 @@ const page = () => {
           </h2>
           <InformationGallery />
         </div>
+        <Socials />
       </div>  
       )
   }
