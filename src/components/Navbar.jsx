@@ -33,10 +33,9 @@ export default function Navbar () {
       </Link>
       {/* <NavbarCollapse /> */}
       <ul className="flex flex-row w-full justify-end gap-8 items-center">
-        <Link href="https://www.tally.xyz/">
-          <a rel="noopener noreferrer" target="_blank">
+          <a href="https://www.tally.xyz/" rel="noopener noreferrer" target="_blank">
             <li>Tally</li>
-          </a>        </Link>
+          </a>     
         <Link href="/mint">
           <li>mint</li>
         </Link>
