@@ -8,10 +8,10 @@ import {
     Button,
     Typography,
   } from "@material-tailwind/react";
-  import { useState } from 'react';
+  import { useState, useEffect } from 'react';
   import { useRouter } from 'next/navigation';
 import {uploadData} from "@/utils/functionDump/Passport.js"
-import { useActiveAccount } from "thirdweb/react";
+import { useActiveAccount, TransactionButton } from "thirdweb/react";
 import { MediaRenderer } from "thirdweb/react";
 import passportIcon from "@/assets/img/coin_matrix.jpg"
 import { useSendTransaction } from "thirdweb/react";
@@ -44,7 +44,16 @@ const GuildBankPassport = () => {
   const [userNameCID, setUserNameCID] = useState(null);
   const [pfpLoading, setPfpLoading] = useState(false);
   const [nameLoading, setNameLoading] = useState(false);
+  const [userAddress, setUserAddress] = useState("");
 
+
+
+  useEffect(() => {
+    if (activeAccount?.address) {
+      console.log("activeAccount", activeAccount.address);
+      setUserAddress(activeAccount.address);
+    }
+  }, [activeAccount]);  
 
 
 
@@ -235,28 +244,45 @@ const copyKey = async (key, type) => {
   
 
 
-
-  const { mutate: sendTx, data: transactionResult } = useSendTransaction();
  
-  const onSubmit = () => {
-    const transaction = prepareContractCall({
-        contract: contractPassport,
-        method: "function createPassport(string memory _profilePic, string memory _userName, string memory _handle, string memory _statusMSG, bool _TOS, bool _minor, string memory _password)",
-        params: [pfpCID, userNameCID, alias, statusCID ? statusCID : msgStatus, checkTOS, minor, hash],
-      })
-      sendTx(transaction);
+ const [transactionResult , setTransactionResult] = useState();
+
+
+  const onSubmit = async () => {
+    const statusMSG = statusCID ? statusCID : msgStatus; // Handle conditional
+    const params = {
+      userAddress,
+      pfpCID,
+      userNameCID,
+      alias,
+      statusMSG,
+      checkTOS,
+      minor,
+      hash,
     };
-  if(transactionResult){
-    console.log(transactionResult.transactionHash);
-    router.push("/home");
-  }
+  console.log("params", JSON.stringify(params));
+    try {
+      const res = await fetch('/api/create-passport', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(params),
+      });
+      const data = await res.json();
+      if (data.success) {
+        console.log(data.transactionHash);
+        setTransactionResult(data.transactionHash);
+        router.push('/home');
+      } else {
+        console.error('Transaction failed:', data.error);
+        // Handle error UI, e.g., alert(data.error)
+      }
+    } catch (err) {
+      console.error('API call error:', err);
+      // Handle error UI
+    }
+  };
 
-
-
-
-
-
-
+ 
 
 
 
@@ -316,7 +342,7 @@ const copyKey = async (key, type) => {
         <Typography variant="h6" color="white" className="mt-3">
           !ONCHAIN! Your Wallet Address
         </Typography>
-            <p className="text-white">{activeAccount.address}</p>
+            <p className="text-white">{activeAccount?.address}</p>
 
 
 
@@ -360,10 +386,6 @@ const copyKey = async (key, type) => {
               className=" !border-t-white-200 "
               onChange={(e) => setAlias(e.target.value)}
             />
-
-
-
-
   <Typography variant="h6" color="white" className="mt-3">
     !IPFS or ONCHAIN! Public Status
   </Typography>
@@ -643,10 +665,13 @@ const copyKey = async (key, type) => {
               }
             }}
           />
-          {checkTOS && userNameCID && alias && activeAccount.address && msgStatus && hash && checkTOS ?                     
-            <Button className="mt-6 mb-6" fullWidth onClick={() => {onSubmit()}}>
+          {checkTOS && userNameCID && alias && activeAccount?.address && msgStatus && hash && checkTOS ?                     
+            <Button onClick={() => {onSubmit()}}>
               gib de Passport,
-            </Button> : ""
+            </Button> 
+            :
+            ""
+
             }
 
         </div>
@@ -662,7 +687,7 @@ const copyKey = async (key, type) => {
         <div className="flex flex-col border-2 border-solid border-gray-500 ">
           <MediaRenderer src={pfpCID}/>
           <div className="">
-            <p> Wallet: {activeAccount.address}</p>
+            <p> Wallet: {activeAccount?.address}</p>
             <div className="w-full overflow-x-auto">userName ({userName}): {userNameCID ? userNameCID : ""}</div>
             <div>Handle: {alias}</div>
             <div>statusMsg ({statusCID ? msgStatus : null}): {statusCID ? statusCID : msgStatus}</div>
