@@ -40,8 +40,8 @@ export default function DropDownNavBar () {
         <MenuList>
 
           <MenuList className="max-h-72">
-              <MenuItem onClick={()=>handleNavigation("https://www.guildbank.biz")}>GuildBank</MenuItem>
-              <MenuItem onClick={()=>handleNavigation("https://www.vanilla-plus.com")}>Vanilla-Plus</MenuItem>
+              <MenuItem onClick={()=>handleNavigation("https://www.guildbank.biz/home")}>GuildBank</MenuItem>
+              <MenuItem onClick={()=>handleNavigation("https://www.vanilla-plus.com/home")}>Vanilla-Plus</MenuItem>
           </MenuList>
         </MenuList>
       </Menu>
