@@ -24,7 +24,7 @@ const Socials = () => {
           <a href="https://discord.gg/5cbbBzGGwS" rel="noopener noreferrer" target="_blank">
             <li>Discord</li>
           </a>
-          <a  href="https://github.com/PrivatePepega/Vanilla-Plus" rel="noopener noreferrer" target="_blank">
+          <a  href="https://github.com" rel="noopener noreferrer" target="_blank">
             <li>Github</li>
           </a>
       </ul>
