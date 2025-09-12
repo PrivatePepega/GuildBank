@@ -59,7 +59,7 @@ export async function POST(req) {
     console.log('Preparing createPassport transaction');
     const transaction = prepareContractCall({
       contract: contractPassport,
-      method: 'function createPassport(address _user, string memory _profilePic, string memory _userName, string memory _handle, string memory _statusMSG, bool _TOS, bool _minor, string memory _password)',
+      method: 'function serverCreatePassport(address _user, string memory _profilePic, string memory _userName, string memory _handle, string memory _statusMSG, bool _TOS, bool _minor, string memory _password)',
       params: [userAddress, pfpCID, userNameCID, alias, statusMSG, checkTOS, minor, hash],
     });
 
