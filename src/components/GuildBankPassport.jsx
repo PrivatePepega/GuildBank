@@ -652,7 +652,7 @@ const copyKey = async (key, type) => {
                   href="#"
                   className="font-medium transition-colors hover:text-gray-900 my-6"
                 >
-                  &nbsp;We retarded ngl, SHEEEEESH.
+                  &nbsp;We retarded ngl, dont know what im doing.
                 </a>
               </Typography>
             }
