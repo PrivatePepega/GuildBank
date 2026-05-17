@@ -90,7 +90,7 @@ const BoDMoneyComponent = () => {
   return (
     <div>
       <h3 className='my-3 font-bold text-lg'>
-        Money Token Stats
+        Credit Token Stats
       </h3>
       <ul>
         <li>

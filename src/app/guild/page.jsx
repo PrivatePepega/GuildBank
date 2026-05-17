@@ -66,7 +66,7 @@ const BoD = () => {
             <div className="flex flex-row gap-12">
               <ButtonGroup>
                 <Button onClick={()=>{setStateLocalGuild(0)}}>DAO</Button>
-                <Button onClick={()=>{setStateLocalGuild(1)}}>Money</Button>
+                <Button onClick={()=>{setStateLocalGuild(1)}}>Credit</Button>
                 <Button onClick={()=>{setStateLocalGuild(2)}}>DAO Treasury</Button>
                 <Button onClick={()=>{setStateLocalGuild(3)}}>BoD Treasury</Button>
                 {/* <Button onClick={()=>{setStateLocalGuild(4)}}>Vault</Button> */}
