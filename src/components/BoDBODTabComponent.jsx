@@ -18,6 +18,7 @@ import { prepareContractCall } from "thirdweb";
 
 import IPFSFileViewer from "./IPFSFileViewer";
 
+import contracts from "../utils/contractAddressHardhat.js"
 
 
 
@@ -364,6 +365,7 @@ return (
             <h3 className='font-bold text-lg my-5'>
             Board of Directors Chair Holders
             </h3>
+            <p>BoD Address: {contracts.GuildBankBoDAddress}</p>
         </div>
         Your Voting Power: {Number(showUserVotingUnits)}
         <ul className="flex flex-col gap-14">

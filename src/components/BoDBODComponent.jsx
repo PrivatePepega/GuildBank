@@ -14,7 +14,7 @@ import { useSendTransaction } from "thirdweb/react";
 import { prepareContractCall } from "thirdweb";
 import BoDSubmitAction from "./BoDSubmitAction";
 import BoDBODTabComponent from "./BoDBODTabComponent";
-
+import contracts from "../utils/contractAddressHardhat.js"
 import IPFSFileViewer from "@/components/IPFSFileViewer";
 
 
@@ -253,6 +253,7 @@ const decodeFunctionCall = () => {
         <h3 className='font-bold text-lg my-5'>
           BoD, Board of Directors
         </h3>
+        <p>BoD Treasury Contract: {contracts.GuildBankBoDTreasuryAddress}</p>
       </div>
         <div className="flex flex-row gap-12 justify-center items-center">
           <ButtonGroup>

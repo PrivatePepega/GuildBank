@@ -40,7 +40,7 @@ export default function Navbar () {
           <li>mint</li>
         </Link>
         <Link href="/store">
-          <li>store</li>
+          <li>market</li>
         </Link>
         <Link href="/guild">
           <li>guild</li>
