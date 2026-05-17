@@ -14,7 +14,7 @@ import { useSendTransaction } from "thirdweb/react";
 import { prepareContractCall } from "thirdweb";
 import BoDSubmitAction from "./BoDSubmitAction";
 import BoDBODTabComponent from "./BoDBODTabComponent";
-import GuildBankBoDTreasuryAddress from "../utils/contractAddressHardhat.js"
+import {GuildBankBoDTreasuryAddress} from "../utils/contractAddressHardhat.js"
 import IPFSFileViewer from "@/components/IPFSFileViewer";
 
 
@@ -249,7 +249,7 @@ const decodeFunctionCall = () => {
 
     return (
     <div>
-      <div className="flex justify-center items-center">
+      <div className="flex-col justify-center items-center">
         <h3 className='font-bold text-lg my-5'>
           BoD, Board of Directors
         </h3>
