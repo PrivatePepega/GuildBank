@@ -17,6 +17,7 @@ import { MediaRenderer } from "thirdweb/react";
 import IPFSFileViewer from "@/components/IPFSFileViewer";
 import {uploadData} from "@/utils/functionDump/Passport.js"
 import PGPGenerator from './PGPGenerator';
+import {GuildBankPassportAddress} from "../utils/contractAddressHardhat.js"
 
 
 
@@ -221,7 +222,7 @@ const [chainMode, setChainMode] = useState(true);
           <h1 className='font-bold text-lg'>
             Passport
           </h1>
-          <p>Passport Address: </p>
+          <p>Passport Address: {GuildBankPassportAddress}</p>
         </div>
 
 
