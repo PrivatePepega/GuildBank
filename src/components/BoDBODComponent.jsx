@@ -253,7 +253,6 @@ const decodeFunctionCall = () => {
         <h3 className='font-bold text-lg'>
           BoD, Board of Directors
         </h3>
-        <p>BoD Treasury Contract: {GuildBankBoDTreasuryAddress}</p>
       </div>
         <div className="flex flex-row gap-12 justify-center items-center">
           <ButtonGroup>
@@ -268,6 +267,7 @@ const decodeFunctionCall = () => {
             <h3 className='my-3 font-bold text-lg'>
               Tickets
             </h3>
+            <p>BoD Treasury Contract: {GuildBankBoDTreasuryAddress}</p>
           </div>
           <div>
             Active Tickets: [{showActionOnQueueArray?.map((tx) => tx.toString()).join(", ")}]
