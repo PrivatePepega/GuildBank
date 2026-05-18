@@ -61,7 +61,7 @@ const GuildBankPassport = () => {
     setPfpLoading(true);
     const url = uploadData(_file);
     if (url) {
-      url.then(res => {setPfpCID(res)});
+      url.then(res => {setPfpCID(res), console.log("res", res)});
       setPfpLoading(false);
     }
   };
@@ -268,8 +268,9 @@ const copyKey = async (key, type) => {
         body: JSON.stringify(params),
       });
       const data = await res.json();
+      console.log("data returned", data);
       if (data.success) {
-        console.log(data.transactionHash);
+        console.log("data hash", data.transactionHash);
         setTransactionResult(data.transactionHash);
         router.push('/home');
       } else {
@@ -438,14 +439,14 @@ const copyKey = async (key, type) => {
                 color="white"
                 className="flex items-center font-normal"
               >
-                <p className="mr-4"> MINOR: </p>
+                <span className="mr-4"> MINOR: </span>
                 <div>
-                  <a className="font-medium transition-colors hover:text-gray-900">
+                  <span className="font-medium transition-colors hover:text-gray-900">
                     Box must be Checked if you're a Minor.
-                  </a>
-                  <a className="font-medium transition-colors hover:text-gray-900">
+                  </span>
+                  <span className="font-medium transition-colors hover:text-gray-900">
                     skibidi kid.
-                  </a>
+                  </span>
                 </div>
 
               </Typography>
@@ -647,7 +648,7 @@ const copyKey = async (key, type) => {
                 color="white"
                 className="flex items-center font-normal"
               >
-                I agree that:
+                I agree that:{" "}
                 <a
                   href="#"
                   className="font-medium transition-colors hover:text-gray-900 my-6"
@@ -687,7 +688,7 @@ const copyKey = async (key, type) => {
         <div className="flex flex-col border-2 border-solid border-gray-500 ">
           <MediaRenderer src={pfpCID}/>
           <div className="">
-            <p> Wallet: {activeAccount?.address}</p>
+            <div> Wallet: {activeAccount?.address}</div>
             <div className="w-full overflow-x-auto">userName ({userName}): {userNameCID ? userNameCID : ""}</div>
             <div>Handle: {alias}</div>
             <div>statusMsg ({statusCID ? msgStatus : null}): {statusCID ? statusCID : msgStatus}</div>

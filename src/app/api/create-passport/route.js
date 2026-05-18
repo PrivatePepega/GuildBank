@@ -56,7 +56,7 @@ export async function POST(req) {
     console.log('Server wallet initialized:', serverAccount);
 
     // Prepare and send transaction
-    console.log('Preparing createPassport transaction');
+    console.log('Preparing serverCreatePassport transaction');
     const transaction = prepareContractCall({
       contract: contractPassport,
       method: 'function serverCreatePassport(address _user, string memory _profilePic, string memory _userName, string memory _handle, string memory _statusMSG, bool _TOS, bool _minor, string memory _password)',
