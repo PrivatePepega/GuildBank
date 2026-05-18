@@ -218,7 +218,7 @@ const [chainMode, setChainMode] = useState(true);
 
     return (
       <div className='mb-8'>
-        <div className='flex-col justify-center items-center my-3'>
+        <div className='flex flex-col my-3 items-center justify-center'>
           <h1 className='font-bold text-lg'>
             Passport
           </h1>
