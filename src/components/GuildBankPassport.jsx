@@ -667,7 +667,7 @@ const copyKey = async (key, type) => {
           />
           {checkTOS && userNameCID && alias && activeAccount?.address && msgStatus && hash && checkTOS ?                     
             <Button onClick={() => {onSubmit()}}>
-              gib de Passport,
+              gib de Passport
             </Button> 
             :
             ""
