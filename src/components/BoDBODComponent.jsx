@@ -263,7 +263,7 @@ const decodeFunctionCall = () => {
         </div>
         {BoDTabs === 0 && 
         <div>
-          <div className="flex-col justify-center items-center w-full my-3">
+          <div className="flex flex-col justify-center items-center w-full my-3">
             <h3 className=' font-bold text-lg'>
               Tickets
             </h3>
