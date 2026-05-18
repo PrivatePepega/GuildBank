@@ -263,8 +263,8 @@ const decodeFunctionCall = () => {
         </div>
         {BoDTabs === 0 && 
         <div>
-          <div className="flex justify-center items-center w-full">
-            <h3 className='my-3 font-bold text-lg'>
+          <div className="flex justify-center items-center w-full my-3">
+            <h3 className=' font-bold text-lg'>
               Tickets
             </h3>
             <p>BoD Treasury Contract: {GuildBankBoDTreasuryAddress}</p>
