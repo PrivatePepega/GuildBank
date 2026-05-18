@@ -215,11 +215,11 @@ const BoDElectionComponent = () => {
 
 
         <div className="flex flex-col justify-center items-center">
-            <h2 className='font-bold text-lg my-5'>
+            <h2 className='font-bold text-lg mt-5'>
                 Elections
             </h2>
             <p>Elections Address: {GuildBankBoDAddress}</p>
-            <p>Ballot Address: {GuildBankGovernorBallotAddress}</p>
+            <p className="mb-5">Ballot Address: {GuildBankGovernorBallotAddress}</p>
 
             <ButtonGroup>
                 <div>
