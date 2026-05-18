@@ -62,7 +62,6 @@ const User = () => {
         </div>
 
 
-        <p>my address: {activeAccount && activeAccount.address}</p>
         {passportIndex === 1 &&
           <UserClose />
         }
