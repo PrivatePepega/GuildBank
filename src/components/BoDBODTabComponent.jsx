@@ -361,7 +361,7 @@ console.log("returnBoD" , returnBoD);
 
 return (
     <div>
-        <div className="flex-col justify-center items-center my-5">
+        <div className="flex flex-col justify-center items-center my-5">
             <h3 className='font-bold text-lg'>
             Board of Directors Chair Holders
             </h3>

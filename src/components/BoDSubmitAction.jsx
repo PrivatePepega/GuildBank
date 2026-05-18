@@ -229,7 +229,7 @@ const encodeFunctionCall = () => {
     return (
 
     <div>
-        <div className="flex-col justify-center items-center my-3">
+        <div className="flex flex-col justify-center items-center my-3">
             <h3 className='font-bold text-lg'>
                 Proposal
             </h3>
