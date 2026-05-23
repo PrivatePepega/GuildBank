@@ -39,7 +39,7 @@ export default function Navbar () {
         <Link href="/mint">
           <li>mint</li>
         </Link>
-        <Link href="/store">
+        <Link href="/market">
           <li>market</li>
         </Link>
         <Link href="/guild">
