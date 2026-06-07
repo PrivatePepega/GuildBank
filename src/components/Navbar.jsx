@@ -4,7 +4,7 @@
 
 import Image from "next/image";
 // import NavbarCollapse from "./NavbarCollapse";
-import GNaUnkea4AAivb7 from "@/assets/img/guild bank logo-01.png";
+import GNaUnkea4AAivb7 from "@/assets/logos/guildbanklogo white-01.png";
 import Link from "next/link";
 
 
@@ -29,7 +29,7 @@ export default function Navbar () {
 
       <DropDownNavBar/>
       <Link href="/home">
-        <Image src={GNaUnkea4AAivb7} alt="GuildBank Logo" width={255} height={255} className="invert"/>
+        <Image src={GNaUnkea4AAivb7} alt="GuildBank Logo" width={400} height={400}/>
       </Link>
       {/* <NavbarCollapse /> */}
       <ul className="flex flex-row w-full justify-end gap-8 items-center">
