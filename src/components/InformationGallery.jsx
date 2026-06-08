@@ -77,8 +77,16 @@ const InformationGallery = () => {
   ];
  
 
-const [dataID, setDataID] = useState(0);
+  const [dataID, setDataID] = useState(0);
 
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth',
+    });
+  };
+
+  
   return (
     <div className="grid gap-4">
 
@@ -91,7 +99,7 @@ const [dataID, setDataID] = useState(0);
             <Image
               width={300}
               height={300}
-              onClick={() => setDataID(item.id)}
+              onClick={() => {setDataID(item.id); scrollToBottom();}}
               src={item.imglink}
               className="h-20 max-w-full cursor-pointer rounded-lg object-cover object-center"
               alt="gallery-image"
