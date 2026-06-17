@@ -9,7 +9,6 @@ export const GuildBankGovernorBallotAddress = "0xdCa8A31A3a91D6210D1e95D19D558Fd
 export const GuildBankBoDAddress = "0xA88135114d356B74d5ec0d8FA379ba9D0d023E5A";
 export const GuildBankBoDTreasuryAddress = "0xdadAdC6546f3400AA20b0d0792B38Aa8D7E1668e";
 export const GuildBankGovernorTreasuryAddress = "0xCB555014aA94E3d35349D5675860528ef0864e04";
-export const GuildBankDAOBurner = "0xA51c1fc2f0D1a1b8494Ed1FE312d7C3a78Ed91C0";
 export const GuildBankAccessManagerAddress = "0x73715F6b3B1E30b808EdEfcbF43Bd37833123E84";
 
 export const contractAddresses = {
@@ -23,6 +22,5 @@ export const contractAddresses = {
   BoDTreasury: GuildBankBoDTreasuryAddress,
   GovernorTreasury: GuildBankGovernorTreasuryAddress,
   AccessManager: GuildBankAccessManagerAddress,
-  Burner: GuildBankDAOBurner,
   Ballot: GuildBankGovernorBallotAddress,
 };
