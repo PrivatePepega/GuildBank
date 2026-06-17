@@ -14,17 +14,6 @@ export const contractPassport = getContract({
   chain: chainById,
 });
 
-export const contractPassportFollow = getContract({
-  client,
-  address: contractAddresses.PassportFollowList,
-  chain: chainById,
-});
-
-export const contractPassportFrens = getContract({
-  client,
-  address: contractAddresses.PassportFrenList,
-  chain: chainById,
-});
   
 export const contractSourceDAO = getContract({
   client,
@@ -62,11 +51,6 @@ export const contractBoDTreasury = getContract({
   chain: chainById,
 });
 
-export const contractDAOBurner = getContract({
-  client,
-  address: contractAddresses.Burner,
-  chain: chainById,
-});
 
 export const contractBallot = getContract({
   client,
