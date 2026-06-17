@@ -12,19 +12,22 @@ const secretsManager = new SecretsManagerClient({
   },
 });
 
-async function getSecrets() {
-  try {
-    const command = new GetSecretValueCommand({ SecretId: process.env.AWS_SECRET_ID });
-    const data = await secretsManager.send(command);
-    if ('SecretString' in data) return JSON.parse(data.SecretString);
-    throw new Error('Secrets not found');
-  } catch (err) {
-    console.error('SecretsManager error:', { error: err.message });
-    throw err;
-  }
-}
+
 
 export async function POST(req) {
+  
+  async function getSecrets() {
+    try {
+      const command = new GetSecretValueCommand({ SecretId: process.env.AWS_SECRET_ID });
+      const data = await secretsManager.send(command);
+      if ('SecretString' in data) return JSON.parse(data.SecretString);
+      throw new Error('Secrets not found');
+    } catch (err) {
+      console.error('SecretsManager error:', { error: err.message });
+      throw err;
+    }
+  }
+
   try {
     console.log('Received POST request to /api/create-passport');
 
