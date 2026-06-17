@@ -262,7 +262,7 @@ const copyKey = async (key, type) => {
     };
   console.log("params", JSON.stringify(params));
     try {
-      const res = await fetch('/api/create-passport', {
+      const res = await fetch('./src/app/api/create-passport', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(params),
