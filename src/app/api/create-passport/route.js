@@ -5,17 +5,13 @@ import { contractPassport } from '@/utils/functionDump/getContracts'; // Adjust 
 import { privateKeyToAccount } from 'thirdweb/wallets';
 
 const secretsManager = new SecretsManagerClient({
-  region: process.env.AWS_REGION,
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  },
+  region: process.env.AWS_REGION || 'us-east-1',
 });
 
 
 
 export async function POST(req) {
-  
+
   async function getSecrets() {
     try {
       const command = new GetSecretValueCommand({ SecretId: process.env.AWS_SECRET_ID });
