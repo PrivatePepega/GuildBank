@@ -5,7 +5,7 @@ import { contractPassport } from '@/utils/functionDump/getContracts'; // Adjust 
 import { privateKeyToAccount } from 'thirdweb/wallets';
 
 const secretsManager = new SecretsManagerClient({
-  region: process.env.AWS_REGION || 'us-east-1',
+  region: 'us-east-1',
 });
 
 
