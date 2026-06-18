@@ -22,6 +22,9 @@ export const metadata = {
   ],
   author: [{ name: "GuildBank Team"}],
   creator: "GuildBank",
+  icons: {
+    icon: '/icon guildbank white-01.png',
+  },
   openGraph: {
     title: "GuildBank",
     description: "Together. Building and owning the metaverse.",
@@ -37,9 +40,6 @@ export const metadata = {
     ],
     locale: "en_US",
     type: "website",
-    icons: {
-      icon: '/icon guildbank white-01.png',
-    },
   },
 };
 
