@@ -1,15 +1,15 @@
 // 🧱 Updated contract addresses for Hardhat deployment
-export const GuildBankSourceAddress = "0x77e833B02183a4cdcf3F2755ddf5C92763494193";
-export const GuildBankMoneyAddress = "0xEbA74203fa63785e6FcbB9C8EeE53Cfa7F114B06";
-export const GuildBankPassportAddress = "0x83F14DBcFA7C6E6DedF752dae586CDc60a1a2178";
-export const GuildBankTimeLockAddress = "0xF425982DD4FA6FDA03D9445a21F0926cd933CDb0";
-export const GuildBankGovernorAddress = "0x5d1FcaE3867AF129867664A139B6190AD0D201AB";
-export const GuildBankGovernorElectionAddress = "0xB5145Abf6d84a773F5e1CB483CC547BD0010993C";
-export const GuildBankGovernorBallotAddress = "0xdCa8A31A3a91D6210D1e95D19D558Fd2C531a346";
-export const GuildBankBoDAddress = "0xA88135114d356B74d5ec0d8FA379ba9D0d023E5A";
-export const GuildBankBoDTreasuryAddress = "0xdadAdC6546f3400AA20b0d0792B38Aa8D7E1668e";
-export const GuildBankGovernorTreasuryAddress = "0xCB555014aA94E3d35349D5675860528ef0864e04";
-export const GuildBankAccessManagerAddress = "0x73715F6b3B1E30b808EdEfcbF43Bd37833123E84";
+export const GuildBankSourceAddress = "0x0b06FC62BB9F3A7849aD48eD04974B517d11a50C";
+export const GuildBankMoneyAddress = "0x50AC269382a3c1Ad9e4086609a02b153D7b54ee6";
+export const GuildBankPassportAddress = "0xc36861A4396Ed8406Ec45B412C1bfA71d54B5a07";
+export const GuildBankTimeLockAddress = "0x72AE508d5575B956C60794288A54cFc6F6b680F4";
+export const GuildBankGovernorAddress = "0xc0893a32fa9bbc799D76Bb5FC0A4774D0F622269";
+export const GuildBankGovernorElectionAddress = "0x07d2E9C761270D8477951e2b4DdF754aa5Cb128F";
+export const GuildBankGovernorBallotAddress = "0x71620F5B02036496BADDE51E9D6E989F5394023B";
+export const GuildBankBoDAddress = "0x6791E4e6E37a25C53F84D73c2617814C928b7153";
+export const GuildBankBoDTreasuryAddress = "0x0A9FB7ec81e67FC20e4f70d8A0768a711f9C9b88";
+export const GuildBankGovernorTreasuryAddress = "0x3Bd5eeA0664Fd4A2e026fDB761203D15aC976255";
+export const GuildBankAccessManagerAddress = "0xbAC3aCccd01452B992ABFE072127E23d6b1bf4C0";
 
 export const contractAddresses = {
   Source: GuildBankSourceAddress,
