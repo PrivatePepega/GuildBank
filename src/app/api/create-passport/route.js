@@ -22,11 +22,6 @@ export async function POST(req) {
   });
 
 
-  console.log('CREDS CHECK:', {
-    keyId: process.env.AMAZON_ACCESS_KEY_ID?.slice(0, 5), // just first 5 chars, safe to log
-    secretLength: process.env.AMAZON_SECRET_ACCESS_KEY?.length,
-    secretId: process.env.AMAZON_SECRET_ID,
-  });
 
 
 
@@ -90,10 +85,6 @@ export async function POST(req) {
     return NextResponse.json({ success: true, transactionHash }, { status: 200 });
   } catch (err) {
     console.error('Create passport error:', err);
-    return NextResponse.json({ error: 'Server error', details: err.message, debug: {
-      keyId: process.env.GB_ACCESS_KEY_ID?.slice(0, 5),
-      secretLength: process.env.GB_SECRET_ACCESS_KEY?.length,
-      secretId: process.env.GB_SECRET_ID,
-    }}, { status: 500 });
+    return NextResponse.json({ error: 'Server error', details: err.message }, { status: 500 });
   }
 }
