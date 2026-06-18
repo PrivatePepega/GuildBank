@@ -67,7 +67,7 @@ export async function POST(req) {
     // Initialize server wallet account
     console.log('Initializing server wallet');
     const serverAccount = privateKeyToAccount({
-      client: { clientId: process.env.THIRDWEB_CLIENT_ID },
+      client: { clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID },
       privateKey: SERVER_WALLET_PASSWORD,
     });
     console.log('Server wallet initialized:', serverAccount);
