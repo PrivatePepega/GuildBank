@@ -16,6 +16,16 @@ const secretsManager = new SecretsManagerClient({
 
 export async function POST(req) {
 
+  console.log('Received POST request to /api/create-passport');
+
+  console.log('CREDS CHECK:', {
+    keyId: process.env.AMAZON_ACCESS_KEY_ID?.slice(0, 5), // just first 5 chars, safe to log
+    secretLength: process.env.AMAZON_SECRET_ACCESS_KEY?.length,
+    secretId: process.env.AMAZON_SECRET_ID,
+  });
+
+
+
   async function getSecrets() {
     try {
       const command = new GetSecretValueCommand({ SecretId: process.env.AMAZON_SECRET_ID });
@@ -76,6 +86,10 @@ export async function POST(req) {
     return NextResponse.json({ success: true, transactionHash }, { status: 200 });
   } catch (err) {
     console.error('Create passport error:', err);
-    return NextResponse.json({ error: 'Server error', details: err.message }, { status: 500 });
-  }
+    return NextResponse.json({ error: 'Server error', details: err.message, debug: {
+      keyId: process.env.AWS_ACCESS_KEY_ID?.slice(0, 5),
+      secretLength: process.env.AWS_SECRET_ACCESS_KEY?.length,
+      secretId: process.env.SECRET_ID,
+    }}, { status: 500 });
+    }
 }
