@@ -37,6 +37,9 @@ export const metadata = {
     ],
     locale: "en_US",
     type: "website",
+    icons: {
+      icon: '/icon guildbank white-01.png',
+    },
   },
 };
 
