@@ -6,6 +6,10 @@ import { privateKeyToAccount } from 'thirdweb/wallets';
 
 const secretsManager = new SecretsManagerClient({
   region: 'us-east-1',
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  },
 });
 
 
@@ -14,7 +18,7 @@ export async function POST(req) {
 
   async function getSecrets() {
     try {
-      const command = new GetSecretValueCommand({ SecretId: process.env.SECRET_ID });
+      const command = new GetSecretValueCommand({ SecretId: process.env.AWS_SECRET_ID });
       const data = await secretsManager.send(command);
       if ('SecretString' in data) return JSON.parse(data.SecretString);
       throw new Error('Secrets not found');
