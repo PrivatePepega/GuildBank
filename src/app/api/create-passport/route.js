@@ -4,19 +4,23 @@ import { prepareContractCall, sendTransaction } from 'thirdweb';
 import { contractPassport } from '@/utils/functionDump/getContracts'; // Adjust import path to match your setup
 import { privateKeyToAccount } from 'thirdweb/wallets';
 
-const secretsManager = new SecretsManagerClient({
-  region: 'us-east-1',
-  credentials: {
-    accessKeyId: process.env.AMAZON_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AMAZON_SECRET_ACCESS_KEY,
-  },
-});
+
 
 
 
 export async function POST(req) {
 
   console.log('Received POST request to /api/create-passport');
+
+
+  const secretsManager = new SecretsManagerClient({
+    region: 'us-east-1',
+    credentials: {
+      accessKeyId: process.env.AMAZON_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AMAZON_SECRET_ACCESS_KEY,
+    },
+  });
+
 
   console.log('CREDS CHECK:', {
     keyId: process.env.AMAZON_ACCESS_KEY_ID?.slice(0, 5), // just first 5 chars, safe to log
@@ -87,9 +91,9 @@ export async function POST(req) {
   } catch (err) {
     console.error('Create passport error:', err);
     return NextResponse.json({ error: 'Server error', details: err.message, debug: {
-      keyId: process.env.AWS_ACCESS_KEY_ID?.slice(0, 5),
-      secretLength: process.env.AWS_SECRET_ACCESS_KEY?.length,
-      secretId: process.env.SECRET_ID,
+      keyId: process.env.AMAZON_ACCESS_KEY_ID?.slice(0, 5),
+      secretLength: process.env.AMAZON_SECRET_ACCESS_KEY?.length,
+      secretId: process.env.AMAZON_SECRET_ID,
     }}, { status: 500 });
     }
 }
