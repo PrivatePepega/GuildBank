@@ -16,8 +16,8 @@ export async function POST(req) {
   const secretsManager = new SecretsManagerClient({
     region: 'us-east-1',
     credentials: {
-      accessKeyId: process.env.AMAZON_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AMAZON_SECRET_ACCESS_KEY,
+      accessKeyId: process.env.GB_ACCESS_KEY_ID,
+      secretAccessKey: process.env.GB_SECRET_ACCESS_KEY,
     },
   });
 
@@ -32,7 +32,7 @@ export async function POST(req) {
 
   async function getSecrets() {
     try {
-      const command = new GetSecretValueCommand({ SecretId: process.env.AMAZON_SECRET_ID });
+      const command = new GetSecretValueCommand({ SecretId: process.env.GB_SECRET_ID });
       const data = await secretsManager.send(command);
       if ('SecretString' in data) return JSON.parse(data.SecretString);
       throw new Error('Secrets not found');
@@ -91,9 +91,9 @@ export async function POST(req) {
   } catch (err) {
     console.error('Create passport error:', err);
     return NextResponse.json({ error: 'Server error', details: err.message, debug: {
-      keyId: process.env.AMAZON_ACCESS_KEY_ID?.slice(0, 5),
-      secretLength: process.env.AMAZON_SECRET_ACCESS_KEY?.length,
-      secretId: process.env.AMAZON_SECRET_ID,
+      keyId: process.env.GB_ACCESS_KEY_ID?.slice(0, 5),
+      secretLength: process.env.GB_SECRET_ACCESS_KEY?.length,
+      secretId: process.env.GB_SECRET_ID,
     }}, { status: 500 });
-    }
+  }
 }
