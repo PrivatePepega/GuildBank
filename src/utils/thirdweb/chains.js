@@ -9,4 +9,5 @@ const chain = defineChain({
 })
 
 
-export const chainById = Base;
+// export const chainById = Base;
+export const chainById = BaseSepolia;
