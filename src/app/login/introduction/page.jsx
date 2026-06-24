@@ -17,8 +17,8 @@ import { useActiveAccount } from "thirdweb/react";
 
 import { chainById } from "@/utils/thirdweb/chains";
 import {client} from "@/utils/thirdweb/client";
+import TurnstileWidget from '@/components/Turnstile';
 
-  import Link from "next/link";
 
 
 
@@ -40,9 +40,9 @@ const activeAccount = useActiveAccount();
 const [page, setPage] = useState(0);
 const [progress, setProgress] = useState(0);
 const [img, setImg] = useState(0);
-const [finished, setFinished] = useState(false);
+const [finished, setFinished] = useState(true);
 
-
+const [captchaToken, setCaptchaToken] = useState(null);
 
 
 
@@ -60,21 +60,9 @@ const [finished, setFinished] = useState(false);
         <div className='flex w-1/2 h-60 justify-center items-center p-4 rounded-lg'>
           <Image className='h-full object-contain ' src={scriptJson.items[page].image} alt="image" width={300} height={300} />
         </div>
-        <div className='flex w-1/2 h-60 justify-center items-center p-4 flex-col gap-3'>
+        <div className='flex w-1/2 h-60 justify-center items-center p-4'>
           {scriptJson.items[page].script}
-          {page === 5 &&
-          <Link
-            href="https://www.figma.com/board/48U8aa2nWoJgh9mzYTse8z/Chapter-1--Login-?node-id=1-72&t=BYFfWvsB4vweAk5R-0"
-            target="_blank" // Opens link in a new tab
-            rel="noopener noreferrer" // Security best practice
-            passHref
-          >
-            <Button >Figma</Button>
-          </Link>  
-        }
-        </div>
-
-        
+        </div> 
       </div>
 
       <div className='flex flex-col gap-3'>
@@ -112,8 +100,18 @@ const [finished, setFinished] = useState(false);
         </ButtonGroup>
       </div>
 
+      {/* {finished ? <ConnectButton client={client} chain={chainById} connectButton={{ label: "Login" }}/> : null} */}
+      {finished ? (
+        <div className="flex flex-col items-center gap-3">
+          <TurnstileWidget onVerify={(token) => setCaptchaToken(token)} />
+          {captchaToken ? (
+            <ConnectButton client={client} chain={chainById} connectButton={{ label: "Login" }}/>
+          ) : (
+            <p className="text-sm text-gray-400">Complete the check above to continue</p>
+          )}
+        </div>
+      ) : null}
 
-      {finished ? <ConnectButton client={client} chain={chainById} connectButton={{ label: "Login" }}/> : null}
 
 
       {activeAccount && finished ? <GuildBankPassport/> : null}
