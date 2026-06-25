@@ -33,7 +33,7 @@ const Introduction = () => {
                 height={300}
               />
             </div>
-            <div className='flex w-1/2 h-60 justify-center items-center p-4'>
+            <div className='flex w-1/2 h-60 justify-center items-center p-4 flex-col'>
               {scriptJson.items[page].script}
               {scriptJson.items[page].link && (
                 <a
