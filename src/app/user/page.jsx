@@ -11,8 +11,7 @@ import { prepareContractCall } from "thirdweb";
 import {contractPassport,   contractPassportFollow, contractPassportFrens  } from "@/utils/functionDump/getContracts"
 import UserClose from '@/components/UserClose';
 import UserPassport from '@/components/UserPassport';
-import UserSocial from '@/components/UserSocial';
-import UserOthers from '@/components/UserOthers';
+
 
 
 
@@ -68,13 +67,6 @@ const User = () => {
         {passportIndex === 2 &&
           <UserPassport />
         }
-        {/* {passportIndex === 3 &&
-          <UserSocial />
-        } */}
-        {/* {passportIndex === 4 &&
-          <UserOthers />
-        } */}
-
 
       </div>
     )

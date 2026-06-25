@@ -18,7 +18,6 @@ import BoDMoneyComponent from "@/components/BoDMoneyComponent";
 import BoDDaoTreasuryComponent from "@/components/BoDDaoTreasuryComponent";
 import BoDTreasuryComponent from "@/components/BoDTreasuryComponent";
 import BoDBODComponent from "@/components/BoDBODComponent";
-import BoDDaoBurnerComponent from "@/components/BoDDaoBurnerComponent";
 import BoDElectionComponent from "@/components/BoDElectionComponent";
 
 
@@ -92,11 +91,6 @@ const BoD = () => {
                   <BoDTreasuryComponent />
                 </div>
               }
-              {/* {StateLocalGuild === 4 &&
-                <div>
-                 <BoDDaoBurnerComponent />
-                </div>
-              } */}
 
 
 
