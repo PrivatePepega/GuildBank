@@ -35,6 +35,17 @@ const Introduction = () => {
             </div>
             <div className='flex w-1/2 h-60 justify-center items-center p-4'>
               {scriptJson.items[page].script}
+              {scriptJson.items[page].link && (
+                <a
+                  href={scriptJson.items[page].link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 underline text-sm"
+                >
+                  open link
+                </a>
+              )}
+              
             </div>
           </div>
 
