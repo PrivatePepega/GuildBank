@@ -3,11 +3,11 @@ import { verifyCaptcha } from '@/utils/lib/verifyCaptcha';
 
 export async function POST(req) {
   try {
-    const { phone } = await req.json();
+    const { phone, captchaToken } = await req.json();
 
 
 
-    if (!phone) {
+    if (!phone || !captchaToken) {
       return Response.json({ error: 'Missing fields' }, { status: 400 });
     }
 
@@ -16,7 +16,6 @@ export async function POST(req) {
         error: 'Phone must be in E.164 format (e.g. +1234567890)' 
       }, { status: 400 });
     }
-
 
 
     const client = twilio(
