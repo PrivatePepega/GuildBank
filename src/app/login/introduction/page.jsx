@@ -89,7 +89,7 @@ const Introduction = () => {
 
       {/* Step 2 — passport, only after wallet connected */}
       {finished && captchaToken && activeAccount && (
-        <GuildBankPassport captchaToken={captchaToken} />
+        <GuildBankPassport />
       )}
 
     </div>

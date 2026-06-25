@@ -16,7 +16,7 @@ import * as openpgp from "openpgp";
 import { createHash } from "crypto";
 
 
-const GuildBankPassport = ({ captchaToken }) => {
+const GuildBankPassport = () => {
   const router = useRouter();
   const activeAccount = useActiveAccount();
 

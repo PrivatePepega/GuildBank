@@ -1,9 +1,9 @@
 import twilio from 'twilio';
+import { verifyCaptcha } from '@/utils/lib/verifyCaptcha';
 
 export async function POST(req) {
   try {
     const { phone } = await req.json();
-
 
 
     if (!phone) {
@@ -15,6 +15,7 @@ export async function POST(req) {
         error: 'Phone must be in E.164 format (e.g. +1234567890)' 
       }, { status: 400 });
     }
+
 
 
     const client = twilio(
