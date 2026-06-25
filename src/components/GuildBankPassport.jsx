@@ -167,7 +167,7 @@ const GuildBankPassport = ({ captchaToken }) => {
       const res = await fetch('/api/send-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone, captchaToken }),
+        body: JSON.stringify({ phone }),
       });
       let data;
       try {

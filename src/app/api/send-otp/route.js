@@ -3,11 +3,11 @@ import { verifyCaptcha } from '@/utils/lib/verifyCaptcha';
 
 export async function POST(req) {
   try {
-    const { phone, captchaToken } = await req.json();
+    const { phone } = await req.json();
 
 
 
-    if (!phone || !captchaToken) {
+    if (!phone) {
       return Response.json({ error: 'Missing fields' }, { status: 400 });
     }
 
@@ -17,11 +17,7 @@ export async function POST(req) {
       }, { status: 400 });
     }
 
-    // Verify captcha
-    const validCaptcha = await verifyCaptcha(captchaToken);
-    if (!validCaptcha) {
-      return Response.json({ error: 'Captcha failed' }, { status: 403 });
-    }
+
 
     const client = twilio(
       process.env.TWILIO_ACCOUNT_SID,
