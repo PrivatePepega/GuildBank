@@ -5,8 +5,7 @@ export async function POST(req) {
   try {
     const { phone, captchaToken } = await req.json();
 
-    console.log('Received phone:', phone);
-    console.log('Service SID:', process.env.TWILIO_VERIFY_SERVICE_SID);
+
 
     if (!phone || !captchaToken) {
       return Response.json({ error: 'Missing fields' }, { status: 400 });

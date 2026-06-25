@@ -1,15 +1,15 @@
 // 🧱 Updated contract addresses for Hardhat deployment
-export const GuildBankSourceAddress = "0x7d5Db94F373464f9A905F0fe461581a6031a77F9";
-export const GuildBankMoneyAddress = "0x7A17066d12e35178e0dF838618fD861B3cBd15E7";
-export const GuildBankPassportAddress = "0x75657FA362A107c2166dD2946437EcBa83b108A2";
-export const GuildBankTimeLockAddress = "0x9AE3C8519b219eD567C7AD9A727E4dcEa25e24BE";
-export const GuildBankGovernorAddress = "0xFd8a4Ec3C91C124a2Ae6010A4D2a7350cDe3b5C6";
-export const GuildBankGovernorElectionAddress = "0xE570A1D6bb00113bcd6f39D665dcD987c005700B";
-export const GuildBankGovernorBallotAddress = "0xd8416F1F1aB4D30f4bB3cFb517BB3a0cAe7F4A41";
-export const GuildBankBoDAddress = "0x1634017beCECAc24E6158A3E89bBCD0e1046B4C0";
-export const GuildBankBoDTreasuryAddress = "0xc2bF11989a109B158025dDb02FDe0A0Abd429dc6";
-export const GuildBankGovernorTreasuryAddress = "0xea4aD94Fc6079e0Bc19141E843e3993bdb2d4925";
-export const GuildBankAccessManagerAddress = "0xa2DdE248Bd5fA49bB418b634e1D1249047D4D446";
+export const GuildBankSourceAddress = "0x5bFBf1203B476558d0Aac5B391ee4eE057A7Ae6e";
+export const GuildBankMoneyAddress = "0x3e331Ab11e7191BFD18879a5C31Aa71bC571d003";
+export const GuildBankPassportAddress = "0x9548C2C036058785f5849352a63D6415af66B43A";
+export const GuildBankTimeLockAddress = "0xF5be70b95b09188A692f37E52F2018e8A31E1213";
+export const GuildBankGovernorAddress = "0xcb1ec1Ea39D561Ddd5C1d9f0D7C3Ff4c109765D2";
+export const GuildBankGovernorElectionAddress = "0x5BD0214325F28aE6D352bc986EB315830b8D4e56";
+export const GuildBankGovernorBallotAddress = "0x98d0D81Ede81aaF8FaAf733343Dd4fC1357154af";
+export const GuildBankBoDAddress = "0xf38c8590D35c4f18f512eAfcc5a98a6A0C5A97AD";
+export const GuildBankBoDTreasuryAddress = "0x9655c15A0321eBeBdabBD9942e7955963d8531D3";
+export const GuildBankGovernorTreasuryAddress = "0x4EB9e4AEdA20b70F9D73E37247680D0C1b70039b";
+export const GuildBankAccessManagerAddress = "0x79F55194EE94754a29783d199897a7647bf603ce";
 
 
 
