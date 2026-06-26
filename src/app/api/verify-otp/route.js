@@ -26,12 +26,12 @@ export async function POST(req) {
   }
 
   const client = twilio(
-    process.env.TWILIO_ACCOUNT_SID,
-    process.env.TWILIO_AUTH_TOKEN
+    process.env.TW_TWILIO_ACCOUNT_SID,
+    process.env.TW_TWILIO_AUTH_TOKEN
   );
 
   const result = await client.verify.v2
-    .services(process.env.TWILIO_VERIFY_SERVICE_SID)
+    .services(process.env.TW_TWILIO_VERIFY_SERVICE_SID)
     .verificationChecks.create({ to: phone, code: otp });
 
   if (result.status !== 'approved') {
