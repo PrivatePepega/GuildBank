@@ -1,18 +1,16 @@
 // 🧱 Updated contract addresses for Hardhat deployment
-export const GuildBankSourceAddress = "0x5bFBf1203B476558d0Aac5B391ee4eE057A7Ae6e";
-export const GuildBankMoneyAddress = "0x3e331Ab11e7191BFD18879a5C31Aa71bC571d003";
-export const GuildBankPassportAddress = "0x9548C2C036058785f5849352a63D6415af66B43A";
-export const GuildBankTimeLockAddress = "0xF5be70b95b09188A692f37E52F2018e8A31E1213";
-export const GuildBankGovernorAddress = "0xcb1ec1Ea39D561Ddd5C1d9f0D7C3Ff4c109765D2";
-export const GuildBankGovernorElectionAddress = "0x5BD0214325F28aE6D352bc986EB315830b8D4e56";
-export const GuildBankGovernorBallotAddress = "0x98d0D81Ede81aaF8FaAf733343Dd4fC1357154af";
-export const GuildBankBoDAddress = "0xf38c8590D35c4f18f512eAfcc5a98a6A0C5A97AD";
-export const GuildBankBoDTreasuryAddress = "0x9655c15A0321eBeBdabBD9942e7955963d8531D3";
-export const GuildBankGovernorTreasuryAddress = "0x4EB9e4AEdA20b70F9D73E37247680D0C1b70039b";
-export const GuildBankAccessManagerAddress = "0x79F55194EE94754a29783d199897a7647bf603ce";
 
-
-
+export const GuildBankSourceAddress = "0xd9d74b5Ec3CEfC9Ad1b8C69F41c9Bf2Cfdd52aE8"; // GuildBankDAOcoin
+export const GuildBankMoneyAddress = "0x042d6b1FdEb95B8bA5517E333495B268f6497072";
+export const GuildBankPassportAddress = "0xeE636C93c6adf9b9aa3ccE12c987Be8aFF376D39";
+export const GuildBankTimeLockAddress = "0xa5F1863a4930846ECD2d9C2082DEd252ed80630a";
+export const GuildBankGovernorAddress = "0x1fF11A0967CC1BAc455A6A3bB77faC1283779c5E";
+export const GuildBankGovernorElectionAddress = "0x6Fb85849633306eE79970d5969bF67AC52879f25";
+export const GuildBankGovernorBallotAddress = "0x0868b9E7b0ea9FDfC89C28f2532a4A979B4751aA";
+export const GuildBankBoDAddress = "0x6B47b2566ecBcB1CC1104269562FA49f615961D3";
+export const GuildBankBoDTreasuryAddress = "0x018A150322Aa08dCF87E78ecAb4498e358fB703b";
+export const GuildBankGovernorTreasuryAddress = "0x868c4eF6d02cD25aa4a0E6615A3fc5A51FfEEC91";
+export const GuildBankAccessManagerAddress = "0x719cAFb1B2b24c7C9FC3b4Cfa6601eA7B739BE7f";
 
 
 export const contractAddresses = {
