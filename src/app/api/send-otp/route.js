@@ -9,20 +9,32 @@ export async function POST(req) {
       return Response.json({ error: 'Missing fields' }, { status: 400 });
     }
 
+
+    // TEMPORARY PROD DEBUG — remove after fixing
+    const envCheck = {
+      sid_present: !!process.env.TWILIO_ACCOUNT_SID,
+      sid_prefix: process.env.TWILIO_ACCOUNT_SID?.substring(0, 6) ?? 'MISSING',
+      token_present: !!process.env.TWILIO_AUTH_TOKEN,
+      service_present: !!process.env.TWILIO_VERIFY_SERVICE_SID,
+      service_prefix: process.env.TWILIO_VERIFY_SERVICE_SID?.substring(0, 6) ?? 'MISSING',
+      node_env: process.env.NODE_ENV,
+    };
+
+    // Return env check directly so we can see it in browser network tab
+    if (phone === 'debug-env-check') {
+      return Response.json({ envCheck }, { status: 200 });
+    }
+
+
+
+
     if (!phone.startsWith('+') || phone.length < 8) {
       return Response.json({ 
         error: 'Phone must be in E.164 format (e.g. +1234567890)' 
       }, { status: 400 });
     }
 
-    // TEMPORARY — remove before committing
-    if (phone) {
-      return Response.json({
-        error:  process.env.TWILIO_ACCOUNT_SID?.substring(0, 6),
-        service: process.env.TWILIO_VERIFY_SERVICE_SID?.substring(0, 6),
-      });
-    }
-
+ 
     const client = twilio(
       process.env.TWILIO_ACCOUNT_SID,
       process.env.TWILIO_AUTH_TOKEN
@@ -42,13 +54,15 @@ export async function POST(req) {
     return Response.json({ success: true });
 
   } catch (error) {
-    console.error('=== TWILIO FULL ERROR ===');
-    console.error('Message:', error.message);
-    console.error('Code:', error.code);
-    console.error('Full Error:', error);
-
-    return Response.json({ 
-      error: error.message || 'Failed to send OTP' 
+    return Response.json({
+      error: error.message,
+      code: error.code,
+      // TEMPORARY — remove after debugging
+      envCheck: {
+        sid_prefix: process.env.TWILIO_ACCOUNT_SID?.substring(0, 6) ?? 'MISSING',
+        service_prefix: process.env.TWILIO_VERIFY_SERVICE_SID?.substring(0, 6) ?? 'MISSING',
+        token_present: !!process.env.TWILIO_AUTH_TOKEN,
+      }
     }, { status: 500 });
   }
 }
