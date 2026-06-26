@@ -1,16 +1,16 @@
 // 🧱 Updated contract addresses for Hardhat deployment
 
-export const GuildBankSourceAddress = "0xd9d74b5Ec3CEfC9Ad1b8C69F41c9Bf2Cfdd52aE8"; // GuildBankDAOcoin
-export const GuildBankMoneyAddress = "0x042d6b1FdEb95B8bA5517E333495B268f6497072";
-export const GuildBankPassportAddress = "0xeE636C93c6adf9b9aa3ccE12c987Be8aFF376D39";
-export const GuildBankTimeLockAddress = "0xa5F1863a4930846ECD2d9C2082DEd252ed80630a";
-export const GuildBankGovernorAddress = "0x1fF11A0967CC1BAc455A6A3bB77faC1283779c5E";
-export const GuildBankGovernorElectionAddress = "0x6Fb85849633306eE79970d5969bF67AC52879f25";
-export const GuildBankGovernorBallotAddress = "0x0868b9E7b0ea9FDfC89C28f2532a4A979B4751aA";
-export const GuildBankBoDAddress = "0x6B47b2566ecBcB1CC1104269562FA49f615961D3";
-export const GuildBankBoDTreasuryAddress = "0x018A150322Aa08dCF87E78ecAb4498e358fB703b";
-export const GuildBankGovernorTreasuryAddress = "0x868c4eF6d02cD25aa4a0E6615A3fc5A51FfEEC91";
-export const GuildBankAccessManagerAddress = "0x719cAFb1B2b24c7C9FC3b4Cfa6601eA7B739BE7f";
+export const GuildBankSourceAddress = "0x35C1fDc0Ac9d80a3a7496dDc1984052f21fb764b"; 
+export const GuildBankMoneyAddress = "0xa043D687207972469bD397d01f58b711c78922F3";
+export const GuildBankPassportAddress = "0xe867e86da50Cd498D7165a5051353F3c2949f6e4";
+export const GuildBankTimeLockAddress = "0xc04DF361D180b8Ce80FD9d5BfDDc6Ac67b738a57";
+export const GuildBankGovernorAddress = "0x7CD5E11765e5D075f8326070A4B9d828c18FC7b4";
+export const GuildBankGovernorElectionAddress = "0x3394cC2C062AEB6aa0E6e03715CF422e0edaCa38";
+export const GuildBankGovernorBallotAddress = "0x1809c666804D80e815fa6f43cCeb47EFE7385fF8";
+export const GuildBankBoDAddress = "0x298Acae29Fbc07727b70c96a683E4c062000379A";
+export const GuildBankBoDTreasuryAddress = "0x5843F4aD82DFC8768F0a539a5388C4c80223973b";
+export const GuildBankGovernorTreasuryAddress = "0xFA343c8BCCBC8D23A484A3406438C5882c2a9D1e";
+export const GuildBankAccessManagerAddress = "0x5F8aA2e0Fdd6270f50CB22fd0Cfa973f8CF72030";
 
 
 export const contractAddresses = {
