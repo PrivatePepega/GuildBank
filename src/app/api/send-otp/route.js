@@ -12,11 +12,11 @@ export async function POST(req) {
 
     // TEMPORARY PROD DEBUG — remove after fixing
     const envCheck = {
-      sid_present: !!process.env.TWILIO_ACCOUNT_SID,
-      sid_prefix: process.env.TWILIO_ACCOUNT_SID?.substring(0, 6) ?? 'MISSING',
-      token_present: !!process.env.TWILIO_AUTH_TOKEN,
-      service_present: !!process.env.TWILIO_VERIFY_SERVICE_SID,
-      service_prefix: process.env.TWILIO_VERIFY_SERVICE_SID?.substring(0, 6) ?? 'MISSING',
+      sid_present: !!process.env.TW_TWILIO_ACCOUNT_SID,
+      sid_prefix: process.env.TW_TWILIO_ACCOUNT_SID?.substring(0, 6) ?? 'MISSING',
+      token_present: !!process.env.TW_TWILIO_AUTH_TOKEN,
+      service_present: !!process.env.TW_TWILIO_VERIFY_SERVICE_SID,
+      service_prefix: process.env.TW_TWILIO_VERIFY_SERVICE_SID?.substring(0, 6) ?? 'MISSING',
       node_env: process.env.NODE_ENV,
     };
 
