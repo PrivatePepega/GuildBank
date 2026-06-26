@@ -59,9 +59,9 @@ export async function POST(req) {
       code: error.code,
       // TEMPORARY — remove after debugging
       envCheck: {
-        sid_prefix: process.env.TWILIO_ACCOUNT_SID?.substring(0, 6) ?? 'MISSING',
-        service_prefix: process.env.TWILIO_VERIFY_SERVICE_SID?.substring(0, 6) ?? 'MISSING',
-        token_present: !!process.env.TWILIO_AUTH_TOKEN,
+        sid_prefix: process.env.TW_TWILIO_ACCOUNT_SID?.substring(0, 6) ?? 'MISSING',
+        service_prefix: process.env.TW_TWILIO_VERIFY_SERVICE_SID?.substring(0, 6) ?? 'MISSING',
+        token_present: !!process.env.TW_TWILIO_AUTH_TOKEN,
       }
     }, { status: 500 });
   }
