@@ -158,7 +158,7 @@ const GuildBankPassport = () => {
     }
   };
 
-  // --- Phone auth ---
+  // --- Phone auth --
   async function handleSendOtp() {
     if (!phone) return setOtpError('Enter a phone number');
     setOtpLoading(true);
