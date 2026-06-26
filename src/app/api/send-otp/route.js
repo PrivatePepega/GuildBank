@@ -26,8 +26,6 @@ export async function POST(req) {
     }
 
 
-
-
     if (!phone.startsWith('+') || phone.length < 8) {
       return Response.json({ 
         error: 'Phone must be in E.164 format (e.g. +1234567890)' 
@@ -35,6 +33,7 @@ export async function POST(req) {
     }
 
  
+    
     const client = twilio(
       process.env.TW_TWILIO_ACCOUNT_SID,
       process.env.TW_TWILIO_AUTH_TOKEN
