@@ -16,7 +16,13 @@ export async function POST(req) {
       }, { status: 400 });
     }
 
-
+    // TEMPORARY — remove before committing
+    if (process.env.NODE_ENV !== 'production') {
+      return Response.json({
+        sid: process.env.TWILIO_ACCOUNT_SID?.substring(0, 6),
+        service: process.env.TWILIO_VERIFY_SERVICE_SID?.substring(0, 6),
+      });
+    }
 
     const client = twilio(
       process.env.TWILIO_ACCOUNT_SID,
