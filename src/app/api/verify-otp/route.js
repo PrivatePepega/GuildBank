@@ -40,7 +40,6 @@ export async function POST(req) {
 
   const { SUPABASE_URL, SUPABASE_KEY } = await getSecrets();
   const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
   // Replace the supabase update block at the end of verify-otp with:
   const phoneHash = crypto.createHash('sha256').update(phone).digest('hex');
 
