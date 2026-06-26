@@ -1,5 +1,4 @@
 import twilio from 'twilio';
-import { verifyCaptcha } from '@/utils/lib/verifyCaptcha';
 
 export async function POST(req) {
   try {
@@ -17,7 +16,7 @@ export async function POST(req) {
     }
 
     // TEMPORARY — remove before committing
-    if (process.env.NODE_ENV !== 'production') {
+    if (phone) {
       return Response.json({
         sid: process.env.TWILIO_ACCOUNT_SID?.substring(0, 6),
         service: process.env.TWILIO_VERIFY_SERVICE_SID?.substring(0, 6),
