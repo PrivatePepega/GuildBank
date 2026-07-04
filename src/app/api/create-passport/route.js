@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { prepareContractCall, sendTransaction } from 'thirdweb';
 import { contractPassport } from '@/utils/functionDump/getContracts'; // Adjust import path to match your setup
 import { privateKeyToAccount } from 'thirdweb/wallets';
-import { rateLimiter } from '@/lib/rateLimit';
+import { rateLimiter } from '@/utils/lib/rateLimit';
 
 
 

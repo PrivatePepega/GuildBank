@@ -1,6 +1,6 @@
 import twilio from 'twilio';
 import { verifyCaptcha } from '@/utils/lib/verifyCaptcha';
-import { rateLimiter } from '@/lib/rateLimit';
+import { rateLimiter } from '@/utils/lib/rateLimit';
 
 export async function POST(req) {
   try {

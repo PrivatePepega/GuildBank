@@ -2,7 +2,7 @@ import twilio from 'twilio';
 import { createClient } from '@supabase/supabase-js';
 import { SecretsManagerClient, GetSecretValueCommand } from '@aws-sdk/client-secrets-manager';
 import crypto from 'crypto';
-import { rateLimiter } from '@/lib/rateLimit';
+import { rateLimiter } from '@/utils/lib/rateLimit';
 
 
 
