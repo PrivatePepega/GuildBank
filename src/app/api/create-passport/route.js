@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import { prepareContractCall, sendTransaction } from 'thirdweb';
 import { contractPassport } from '@/utils/functionDump/getContracts'; // Adjust import path to match your setup
 import { privateKeyToAccount } from 'thirdweb/wallets';
+import { rateLimiter } from '@/lib/rateLimit';
 
 
 
@@ -12,7 +13,13 @@ export async function POST(req) {
 
   console.log('Received POST request to /api/create-passport');
 
+  const ip = req.headers.get('x-forwarded-for') ?? '127.0.0.1';
+  const { success } = await rateLimiter.limit(ip);
+  if (!success) {
+    return Response.json({ error: 'Too many requests, try again later' }, { status: 429 });
+  }
 
+  
   const secretsManager = new SecretsManagerClient({
     region: 'us-east-1',
     credentials: {

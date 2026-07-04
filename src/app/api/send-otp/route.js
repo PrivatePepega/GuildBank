@@ -1,50 +1,61 @@
 import twilio from 'twilio';
-import { SecretsManagerClient, GetSecretValueCommand } from '@aws-sdk/client-secrets-manager';
-
-
+import { verifyCaptcha } from '@/utils/lib/verifyCaptcha';
+import { rateLimiter } from '@/lib/rateLimit';
 
 export async function POST(req) {
   try {
-    const { phone } = await req.json();
+    const { phone, captchaToken } = await req.json();
 
-    if (!phone) {
+    const ip = req.headers.get('x-forwarded-for') ?? '127.0.0.1';
+    const { success } = await rateLimiter.limit(ip);
+    if (!success) {
+      return Response.json({ error: 'Too many requests, try again later' }, { status: 429 });
+    }
+    console.log('Received phone:', phone);
+    console.log('Service SID:', process.env.TWILIO_VERIFY_SERVICE_SID);
+
+    if (!phone || !captchaToken) {
       return Response.json({ error: 'Missing fields' }, { status: 400 });
     }
 
     if (!phone.startsWith('+') || phone.length < 8) {
-      return Response.json({ error: 'Phone must be in E.164 format e.g. +1234567890' }, { status: 400 });
+      return Response.json({ 
+        error: 'Phone must be in E.164 format (e.g. +1234567890)' 
+      }, { status: 400 });
     }
 
-    async function getSecrets() {
-      const secretsManager = new SecretsManagerClient({
-        region: 'us-east-1',
-        credentials: {
-          accessKeyId: process.env.GB_ACCESS_KEY_ID,
-          secretAccessKey: process.env.GB_SECRET_ACCESS_KEY,
-        },
-      });
-      const command = new GetSecretValueCommand({ SecretId: process.env.GB_SECRET_ID });
-      const data = await secretsManager.send(command);
-      if ('SecretString' in data) return JSON.parse(data.SecretString);
-      throw new Error('Secrets not found');
+    // Verify captcha
+    const validCaptcha = await verifyCaptcha(captchaToken);
+    if (!validCaptcha) {
+      return Response.json({ error: 'Captcha failed' }, { status: 403 });
     }
 
-    const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_VERIFY_SERVICE_SID } = await getSecrets();
+    const client = twilio(
+      process.env.TWILIO_ACCOUNT_SID,
+      process.env.TWILIO_AUTH_TOKEN
+    );
 
-    if (!TWILIO_ACCOUNT_SID || !TWILIO_AUTH_TOKEN || !TWILIO_VERIFY_SERVICE_SID) {
-      return Response.json({ error: 'Twilio configuration missing' }, { status: 500 });
-    }
-
-    const client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+    console.log('Sending OTP to:', phone);
 
     await client.verify.v2
-      .services(TWILIO_VERIFY_SERVICE_SID)
-      .verifications.create({ to: phone, channel: 'sms' });
+      .services(process.env.TWILIO_VERIFY_SERVICE_SID)
+      .verifications.create({ 
+        to: phone, 
+        channel: 'sms' 
+      });
+
+    console.log('OTP sent successfully');
 
     return Response.json({ success: true });
 
   } catch (error) {
-    console.error('Send OTP error:', error.message);
-    return Response.json({ error: error.message }, { status: 500 });
+    console.error('=== TWILIO FULL ERROR ===');
+    console.error('Message:', error.message);
+    console.error('Code:', error.code);
+    console.error('Full Error:', error);
+
+    return Response.json({ 
+      error: error.message || 'Failed to send OTP' 
+    }, { status: 500 });
   }
 }
