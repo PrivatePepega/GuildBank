@@ -61,7 +61,7 @@ export default function Home() {
           <Button className="w-40">Join GuildBank-(its free)</Button>    
         </Link>
         <Link href="/home">
-          <Button className="w-40">Continue</Button>    
+          <Button className="w-40">Home</Button>    
         </Link>
           <Socials />
       </div>
