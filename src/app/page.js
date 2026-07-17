@@ -53,10 +53,10 @@ export default function Home() {
   return ( 
     <main className="">
       <div className="flex flex-col justify-center items-center gap-3">
-        {passportBalance == 0n && (
+        {/* {passportBalance == 0n && (
           <div>you do not possess a passport my fren,</div>
         )}
-        <ConnectButton client={client} chain={chainById} connectButton={{ label: "Login" }}/>
+        <ConnectButton client={client} chain={chainById} connectButton={{ label: "Login" }}/> */}
         <Link href="/login/introduction">
           <Button className="w-40">Join GuildBank-(its free)</Button>    
         </Link>
