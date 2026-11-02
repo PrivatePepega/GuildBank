@@ -101,7 +101,7 @@ const InformationGallery = () => {
               height={300}
               onClick={() => {setDataID(item.id); scrollToBottom();}}
               src={item.imglink}
-              className="h-20 max-w-full cursor-pointer rounded-lg object-cover object-center"
+              className="h-25 max-w-full cursor-pointer rounded-lg object-cover object-center"
               alt="gallery-image"
             />
           </div>
@@ -127,7 +127,7 @@ const InformationGallery = () => {
 
         <Image
           width={300}
-          height={300}
+          height={500}
           style={{ objectFit: "contain" }}
           className="h-auto w-full max-w-4xl mx-auto rounded-lg object-cover object-center md:h-[480px] shadow-lg"
           src={data[dataID].imglink}

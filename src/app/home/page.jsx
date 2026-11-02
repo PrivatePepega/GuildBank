@@ -31,7 +31,7 @@ const page = () => {
 
     return (
       <div>
-        <div className="flex flex-row w-full justify-around">
+        <div className="flex flex-row w-full justify-around pt-8">
           <div className="flex flex-col justify-center items-center mx-8 gap-5">
             <p className="font-black">
               GuildBank Global
